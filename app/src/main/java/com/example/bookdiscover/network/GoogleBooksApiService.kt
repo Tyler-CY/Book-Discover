@@ -33,6 +33,12 @@ interface GoogleBooksApiService {
      */
     @GET("books/v1/volumes")
     suspend fun getBooks(): VolumeQueryResult
+
+    /**
+     * Test link with some results
+     */
+    @GET("books/v1/volumes?q=How%20to%20build%20a%20car&maxResults=2")
+    suspend fun testLink(): VolumeQueryResult
 }
 
 /**
