@@ -1,4 +1,4 @@
-package com.example.bookdiscover
+package com.example.bookdiscover.network
 
 import com.squareup.moshi.Json
 

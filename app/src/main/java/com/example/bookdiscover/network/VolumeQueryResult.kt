@@ -1,4 +1,4 @@
-package com.example.bookdiscover
+package com.example.bookdiscover.network
 
 data class VolumeQueryResult (
     val kind: String, // Should be "books#volumes"
