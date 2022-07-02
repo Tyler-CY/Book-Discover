@@ -1,19 +1,23 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-kapt'
 }
 
 android {
-    compileSdk 32
+    compileSdk 31
 
     defaultConfig {
         applicationId "com.example.bookdiscover"
         minSdk 21
-        targetSdk 32
+        targetSdk 31
         versionCode 1
         versionName "1.0"
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+//        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildFeatures {
+        dataBinding true
     }
 
     buildTypes {
@@ -29,6 +33,7 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
 }
 
 dependencies {
@@ -42,7 +47,7 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
-
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.7.0"
     // Moshi
     implementation 'com.squareup.moshi:moshi-kotlin:1.13.0'
     // Retrofit with Moshi Converter
@@ -50,4 +55,7 @@ dependencies {
 
     // For viewModelScope
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.0'
+    // For fragment viewModels
+    def fragment_version = "1.5.0"
+    implementation "androidx.fragment:fragment-ktx:$fragment_version"
 }
