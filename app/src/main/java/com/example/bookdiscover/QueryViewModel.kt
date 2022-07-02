@@ -13,9 +13,9 @@ enum class GoogleBooksApiStatus { LOADING, ERROR, DONE }
 class QueryViewModel : ViewModel() {
 
     // Private MutableLiveData which stores the status of the latest request
-    private val _status = MutableLiveData<VolumeQueryResult>()
+    private val _status = MutableLiveData<String>()
     // Public immutable LiveData which is retrieved for latest status
-    val status: LiveData<VolumeQueryResult> = _status
+    val status: LiveData<String> = _status
 
     /**
      * Call the API immediately to get its status
@@ -29,8 +29,13 @@ class QueryViewModel : ViewModel() {
      */
     private fun getTestLinkResult(){
         viewModelScope.launch {
-            val queryResult = GoogleBooksApi.retrofitService.testLink()
-            _status.value = queryResult
+            try{
+                val queryResult = GoogleBooksApi.retrofitService.testLink()
+                _status.value = "success"
+            } catch (e: Exception){
+                _status.value = "fail"
+            }
+
         }
     }
 }
