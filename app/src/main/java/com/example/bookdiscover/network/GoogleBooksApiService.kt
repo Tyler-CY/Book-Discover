@@ -7,7 +7,7 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
 
 // Constant base url for Google APIs. We are only interested in the Books API.
-private const val BASE_URL = "https://books.googleapis.com/"
+private const val BASE_URL = "https://www.googleapis.com/books/"
 
 /**
  * Build the Moshi object for Kotlin JSON adapter
@@ -37,7 +37,7 @@ interface GoogleBooksApiService {
     /**
      * Test link with some results
      */
-    @GET("books/v1/volumes?q=How%20to%20build%20a%20car&maxResults=2")
+    @GET("v1/volumes?q=How")
     suspend fun testLink(): VolumeQueryResult
 }
 

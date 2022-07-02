@@ -31,8 +31,9 @@ class QueryViewModel : ViewModel() {
         viewModelScope.launch {
             try{
                 val queryResult = GoogleBooksApi.retrofitService.testLink()
-                _status.value = "success"
+                _status.value = "success: ${queryResult.kind}, ${queryResult.totalItems}"
             } catch (e: Exception){
+                throw e
                 _status.value = "fail"
             }
 

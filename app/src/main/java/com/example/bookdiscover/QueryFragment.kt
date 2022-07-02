@@ -18,7 +18,7 @@ class QueryFragment : Fragment() {
 //
 //    private lateinit var viewModel: QueryViewModel
 
-    private val viewModel by viewModels<QueryViewModel>()
+    private val viewModel: QueryViewModel by viewModels()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
