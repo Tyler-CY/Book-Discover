@@ -16,6 +16,10 @@ annotation class VolumeInfoTitle
 data class Volume (
     val id: String,
     val volumeInfo: Map<String, Any?>,
+    val userInfo: Map<String, Any?>? = null,
+    val saleInfo: Map<String, Any?>? = null,
+    val accessInfo: Map<String, Any?>? = null,
+    val searchInfo: Map<String, Any?>? = null
 //    @VolumeInfoTitle val title: String
 )
 
