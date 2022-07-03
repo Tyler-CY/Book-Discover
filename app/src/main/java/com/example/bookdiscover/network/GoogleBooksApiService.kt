@@ -14,8 +14,8 @@ private const val BASE_URL = "https://www.googleapis.com/books/"
  * Build the Moshi object for Kotlin JSON adapter
  */
 private val moshi = Moshi.Builder()
-    .add(KotlinJsonAdapterFactory())
     .add(VolumeInfoAdapter())
+    .addLast(KotlinJsonAdapterFactory())
     .build()
 
 /**
