@@ -1,11 +1,10 @@
-package com.example.bookdiscover
+package com.example.bookdiscover.query
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.bookdiscover.network.GoogleBooksApi
-import com.example.bookdiscover.network.VolumeQueryResult
 import kotlinx.coroutines.launch
 
 enum class GoogleBooksApiStatus { LOADING, ERROR, DONE }
@@ -31,12 +30,10 @@ class QueryViewModel : ViewModel() {
         viewModelScope.launch {
             try{
                 val queryResult = GoogleBooksApi.retrofitService.testLink()
-                _status.value = "success: ${queryResult.kind}, ${queryResult.totalItems}"
+                _status.value = "Success: ${queryResult.kind}; ${queryResult.totalItems}"
             } catch (e: Exception){
-                throw e
-                _status.value = "fail"
+                e.printStackTrace()
             }
-
         }
     }
 }
