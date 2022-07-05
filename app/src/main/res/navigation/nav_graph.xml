@@ -22,7 +22,7 @@
         tools:layout="@layout/fragment_sale_info" >
 
         <action
-            android:id="@+id/action_saleInfoFragment_to_queryFragment2"
+            android:id="@+id/action_saleInfoFragment_to_queryFragment"
             app:destination="@id/queryFragment" />
     </fragment>
 </navigation>
