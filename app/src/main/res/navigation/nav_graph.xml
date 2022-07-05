@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/queryFragment">
+
+    <fragment
+        android:id="@+id/queryFragment"
+        android:name="com.example.bookdiscover.query.QueryFragment"
+        android:label="fragment_query"
+        tools:layout="@layout/fragment_query" >
+        <action
+            android:id="@+id/action_queryFragment_to_saleInfoFragment"
+            app:destination="@id/saleInfoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/saleInfoFragment"
+        android:name="com.example.bookdiscover.volume.SaleInfoFragment"
+        android:label="fragment_sale_info"
+        tools:layout="@layout/fragment_sale_info" >
+
+        <action
+            android:id="@+id/action_saleInfoFragment_to_queryFragment2"
+            app:destination="@id/queryFragment" />
+    </fragment>
+</navigation>
