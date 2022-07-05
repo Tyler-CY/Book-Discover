@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
+import com.example.bookdiscover.R
 import com.example.bookdiscover.databinding.FragmentQueryBinding
 
 class QueryFragment : Fragment() {
@@ -31,7 +33,14 @@ class QueryFragment : Fragment() {
         // Give the binding access to the QueryViewModel class
         binding.viewModel = viewModel
 
-//        return inflater.inflate(R.layout.query_fragment, container, false)
+        // Initialize buttons
+        binding.queryButton.setOnClickListener(View.OnClickListener {
+            findNavController().navigate(R.id.action_queryFragment_to_saleInfoFragment)
+        })
+
+
+
+        // return inflater.inflate(R.layout.query_fragment, container, false)
         return binding.root
     }
 }
