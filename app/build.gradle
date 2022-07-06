@@ -55,9 +55,13 @@ dependencies {
 
     // For viewModelScope
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.0'
+    // For activity viewModels
+    def activity_version = "1.5.0"
+    implementation "androidx.activity:activity-ktx:$activity_version"
     // For fragment viewModels
     def fragment_version = "1.5.0"
     implementation "androidx.fragment:fragment-ktx:$fragment_version"
+
 
     def nav_version = "2.5.0"
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
