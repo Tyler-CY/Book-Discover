@@ -28,7 +28,7 @@ class QueryFragment : Fragment() {
         val binding = FragmentQueryBinding.inflate(inflater)
 
         // QueryFragment determines the lifecycle of the binding.
-        binding.lifecycleOwner = this
+        binding.lifecycleOwner = viewLifecycleOwner
 
         // Give the binding access to the QueryViewModel class
         binding.viewModel = sharedViewModel

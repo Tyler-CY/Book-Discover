@@ -20,7 +20,7 @@ class SaleInfoFragment : Fragment() {
         val binding = FragmentSaleInfoBinding.inflate(inflater)
 
         // SaleInfoFragment determines the lifecycle of the binding.
-        binding.lifecycleOwner = this
+        binding.lifecycleOwner = viewLifecycleOwner
 
         // Give the binding access to the SaleInfoViewModel class
         binding.viewModel = viewModel
