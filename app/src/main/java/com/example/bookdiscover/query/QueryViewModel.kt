@@ -18,6 +18,10 @@ class QueryViewModel : ViewModel() {
     private val _totalItems = MutableLiveData<Int>()
     val totalItems: LiveData<Int> = _totalItems
 
+    private val _topResultTitle = MutableLiveData<String>()
+    val topResultTitle: LiveData<String> = _topResultTitle
+
+
 //    private val _id = MutableLiveData<String>()
 //    val id: LiveData<String> = _id
 //
@@ -39,9 +43,9 @@ class QueryViewModel : ViewModel() {
     /**
      * Call the API immediately to get its status
      */
-    init {
-        getTestLinkResult()
-    }
+//    init {
+//        getTestLinkResult()
+//    }
 
     /**
      * A test function which gets some books information from the Books API
@@ -52,6 +56,20 @@ class QueryViewModel : ViewModel() {
                 val queryResult = GoogleBooksApi.retrofitService.testLink()
                 _kind.value = queryResult.kind
                 _totalItems.value = queryResult.totalItems
+                _topResultTitle.value = queryResult.items[0].volumeInfo.toString().substring(0, 50)
+            } catch (e: Exception){
+                e.printStackTrace()
+            }
+        }
+    }
+
+    fun searchByName(bookName: String) {
+        viewModelScope.launch {
+            try{
+                val queryResult = GoogleBooksApi.retrofitService.searchByName(bookName)
+                _kind.value = queryResult.kind
+                _totalItems.value = queryResult.totalItems
+                _topResultTitle.value = queryResult.items[0].volumeInfo.toString().substring(0, 50)
             } catch (e: Exception){
                 e.printStackTrace()
             }
