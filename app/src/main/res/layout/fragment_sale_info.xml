@@ -7,7 +7,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.bookdiscover.volume.SaleInfoViewModel"/>
+            type="com.example.bookdiscover.query.QueryViewModel"/>
     </data>
 
     <androidx.appcompat.widget.LinearLayoutCompat
@@ -17,7 +17,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@{viewModel.status}" />
+            android:text="@{viewModel.totalItems.toString()}" />
 
         <Button
             android:id="@+id/saleButton"
