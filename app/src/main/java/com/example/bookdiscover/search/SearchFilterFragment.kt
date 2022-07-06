@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.bookdiscover.MainActivity
 import com.example.bookdiscover.R
+import com.example.bookdiscover.SEARCH_NAME
 import com.example.bookdiscover.databinding.FragmentSaleInfoBinding
 import com.example.bookdiscover.databinding.FragmentSearchFilterBinding
 
@@ -22,13 +23,19 @@ class SearchFilterFragment : Fragment() {
     ): View? {
         val binding = FragmentSearchFilterBinding.inflate(inflater)
 
-        binding.lifecycleOwner = viewLifecycleOwner
 
-        binding.submitButton.setOnClickListener(View.OnClickListener {
-            val intent = Intent(activity, MainActivity::class.java)
-            Log.d(TAG, "Launch Intent")
-            startActivity(intent)
-        })
+        binding.apply{
+            lifecycleOwner = viewLifecycleOwner
+
+            submitButton.setOnClickListener(View.OnClickListener {
+                val intent = Intent(activity, MainActivity::class.java)
+                val name = nameText.text.toString()
+                Log.d(TAG, name)
+                intent.putExtra(SEARCH_NAME, name)
+                Log.d(TAG, "Launch Intent")
+                startActivity(intent)
+            })
+        }
 
 
         return binding.root
