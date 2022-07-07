@@ -18,6 +18,7 @@ class VolumeFragment : Fragment() {
 
     // QueryViewModel shared by other volume fragments and QueryActivity
     private val sharedViewModel: ResultViewModel by activityViewModels()
+//    private val position = activity!!.intent.getIntExtra("POSITION", 0)
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,9 +37,17 @@ class VolumeFragment : Fragment() {
 
             // Initialize buttons
             queryButton.setOnClickListener {
-                findNavController().navigate(R.id.action_queryFragment_to_resultVolumeListFragment)
+                findNavController().navigate(R.id.action_volumeFragment_to_saleInfoFragment)
             }
+
         }
+
+//
+//        sharedViewModel.items.observe(this) {
+//
+//            binding.volumeTitle.text = it.get(position).volumeInfo!!.get("title").toString()
+//        }
+
 
         return binding.root
     }
