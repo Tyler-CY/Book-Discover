@@ -2,12 +2,12 @@
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".query.QueryFragment">
+    tools:context=".result.ResultFragment">
 
     <data>
         <variable
             name="viewModel"
-            type="com.example.bookdiscover.query.QueryViewModel"/>
+            type="com.example.bookdiscover.result.QueryViewModel"/>
     </data>
 
     <androidx.appcompat.widget.LinearLayoutCompat

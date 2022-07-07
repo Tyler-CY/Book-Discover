@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/queryFragment"
-        android:name="com.example.bookdiscover.query.QueryFragment"
+        android:name="com.example.bookdiscover.result.ResultFragment"
         android:label="fragment_query"
         tools:layout="@layout/fragment_query" >
         <action
