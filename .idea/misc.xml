@@ -4,22 +4,26 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/chun/IdeaProjects/android-basics-kotlin-words-app-starter/BookDiscover/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.3296875" />
+        <entry key="..\:/Users/chun/IdeaProjects/android-basics-kotlin-words-app-starter/BookDiscover/app/src/main/res/drawable/ic_android_black_24dp.xml" value="0.3145833333333333" />
         <entry key="..\:/Users/chun/IdeaProjects/android-basics-kotlin-words-app-starter/BookDiscover/app/src/main/res/drawable/ic_launcher_background.xml" value="0.3296875" />
         <entry key="..\:/Users/chun/IdeaProjects/android-basics-kotlin-words-app-starter/BookDiscover/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/chun/IdeaProjects/android-basics-kotlin-words-app-starter/BookDiscover/app/src/main/res/layout/activity_result.xml" value="0.31354166666666666" />
         <entry key="..\:/Users/chun/IdeaProjects/android-basics-kotlin-words-app-starter/BookDiscover/app/src/main/res/layout/activity_search.xml" value="0.31354166666666666" />
+        <entry key="..\:/Users/chun/IdeaProjects/android-basics-kotlin-words-app-starter/BookDiscover/app/src/main/res/layout/activity_volume.xml" value="0.20018115942028986" />
         <entry key="..\:/Users/chun/IdeaProjects/android-basics-kotlin-words-app-starter/BookDiscover/app/src/main/res/layout/fragment_item_list.xml" value="0.3651041666666667" />
         <entry key="..\:/Users/chun/IdeaProjects/android-basics-kotlin-words-app-starter/BookDiscover/app/src/main/res/layout/fragment_nav_host.xml" value="0.5541666666666667" />
         <entry key="..\:/Users/chun/IdeaProjects/android-basics-kotlin-words-app-starter/BookDiscover/app/src/main/res/layout/fragment_query.xml" value="0.20618556701030927" />
-        <entry key="..\:/Users/chun/IdeaProjects/android-basics-kotlin-words-app-starter/BookDiscover/app/src/main/res/layout/fragment_result.xml" value="0.3047337278106509" />
+        <entry key="..\:/Users/chun/IdeaProjects/android-basics-kotlin-words-app-starter/BookDiscover/app/src/main/res/layout/fragment_result.xml" value="0.14285714285714285" />
         <entry key="..\:/Users/chun/IdeaProjects/android-basics-kotlin-words-app-starter/BookDiscover/app/src/main/res/layout/fragment_result_list.xml" value="0.39479166666666665" />
         <entry key="..\:/Users/chun/IdeaProjects/android-basics-kotlin-words-app-starter/BookDiscover/app/src/main/res/layout/fragment_result_volume_list.xml" value="0.2717678100263852" />
         <entry key="..\:/Users/chun/IdeaProjects/android-basics-kotlin-words-app-starter/BookDiscover/app/src/main/res/layout/fragment_sale_info.xml" value="0.4317708333333333" />
         <entry key="..\:/Users/chun/IdeaProjects/android-basics-kotlin-words-app-starter/BookDiscover/app/src/main/res/layout/fragment_search.xml" value="0.39479166666666665" />
         <entry key="..\:/Users/chun/IdeaProjects/android-basics-kotlin-words-app-starter/BookDiscover/app/src/main/res/layout/fragment_search_filter.xml" value="0.1" />
+        <entry key="..\:/Users/chun/IdeaProjects/android-basics-kotlin-words-app-starter/BookDiscover/app/src/main/res/layout/fragment_volume.xml" value="0.2984375" />
         <entry key="..\:/Users/chun/IdeaProjects/android-basics-kotlin-words-app-starter/BookDiscover/app/src/main/res/layout/fragment_volume_sale_info.xml" value="0.2078804347826087" />
         <entry key="..\:/Users/chun/IdeaProjects/android-basics-kotlin-words-app-starter/BookDiscover/app/src/main/res/layout/fragment_volume_user_info.xml" value="0.5541666666666667" />
         <entry key="..\:/Users/chun/IdeaProjects/android-basics-kotlin-words-app-starter/BookDiscover/app/src/main/res/layout/query_fragment.xml" value="0.5401041666666667" />
+        <entry key="..\:/Users/chun/IdeaProjects/android-basics-kotlin-words-app-starter/BookDiscover/app/src/main/res/layout/result_item.xml" value="0.5" />
         <entry key="..\:/Users/chun/IdeaProjects/android-basics-kotlin-words-app-starter/BookDiscover/app/src/main/res/layout/result_list_item.xml" value="0.39479166666666665" />
         <entry key="..\:/Users/chun/IdeaProjects/android-basics-kotlin-words-app-starter/BookDiscover/app/src/main/res/layout/result_volume_list_item.xml" value="0.32608695652173914" />
       </map>
