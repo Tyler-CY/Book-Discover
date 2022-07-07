@@ -25,7 +25,7 @@ class ResultActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController)
 
         // QueryViewModel shared by other volume fragments and QueryActivity
-        val sharedViewModel: QueryViewModel by viewModels()
+        val sharedViewModel: ResultViewModel by viewModels()
 
         // Invoke searchByName method in sharedViewModel to search for book based on user's filter
         val queryParameters = intent.getStringExtra(SEARCH_NAME).toString()

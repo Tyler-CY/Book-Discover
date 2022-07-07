@@ -7,11 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.bookdiscover.SEARCH_NAME
-import com.example.bookdiscover.databinding.FragmentSearchFilterBinding
+import com.example.bookdiscover.databinding.FragmentSearchBinding
 import com.example.bookdiscover.result.ResultActivity
 
-class SearchFilterFragment : Fragment() {
-
+class SearchFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -19,7 +18,7 @@ class SearchFilterFragment : Fragment() {
     ): View {
 
         // Data-binding with XML
-        val binding = FragmentSearchFilterBinding.inflate(inflater)
+        val binding = FragmentSearchBinding.inflate(inflater)
 
         binding.apply{
             // QueryFragment determines the lifecycle of the binding.

@@ -8,13 +8,15 @@ import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.bookdiscover.R
-import com.example.bookdiscover.databinding.FragmentVolumeSaleInfoBinding
+import com.example.bookdiscover.databinding.FragmentVolumeBinding
 import com.example.bookdiscover.result.ResultViewModel
 
 /**
- * The fragment class which shows only the sales info of a particular book.
+ * The fragment class which shows the result overview; used in ResultActivity
  */
-class SaleInfoFragment : Fragment() {
+class VolumeFragment : Fragment() {
+
+    // QueryViewModel shared by other volume fragments and QueryActivity
     private val sharedViewModel: ResultViewModel by activityViewModels()
 
     override fun onCreateView(
@@ -23,7 +25,7 @@ class SaleInfoFragment : Fragment() {
     ): View {
 
         // Data-binding with XML
-        val binding = FragmentVolumeSaleInfoBinding.inflate(inflater)
+        val binding = FragmentVolumeBinding.inflate(inflater)
 
         binding.apply {
             // QueryFragment determines the lifecycle of the binding.
@@ -33,8 +35,8 @@ class SaleInfoFragment : Fragment() {
             viewModel = sharedViewModel
 
             // Initialize buttons
-            saleButton.setOnClickListener {
-                findNavController().navigate(R.id.action_saleInfoFragment_to_queryFragment)
+            queryButton.setOnClickListener {
+                findNavController().navigate(R.id.action_queryFragment_to_resultVolumeListFragment)
             }
         }
 

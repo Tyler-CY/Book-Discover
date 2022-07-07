@@ -11,7 +11,7 @@ import kotlinx.coroutines.launch
 /**
  * The ViewModel shared by the classes in the result package
  */
-class QueryViewModel : ViewModel() {
+class ResultViewModel: ViewModel(){
 
     // The kind of query
     private val _kind = MutableLiveData<String>()
@@ -59,7 +59,7 @@ class QueryViewModel : ViewModel() {
             try{
 
                 // Get the query result
-                val queryResult = GoogleBooksApi.retrofitService.searchByName(bookName)
+                val queryResult = GoogleBooksApi.retrofitService.searchByName(bookName, "25")
                 // Unpack the query result into different attributes
                 _kind.value = queryResult.kind
                 _totalItems.value = queryResult.totalItems

@@ -44,7 +44,7 @@ interface GoogleBooksApiService {
     suspend fun testLink(): VolumeQueryResult
 
     @GET("v1/volumes")
-    suspend fun searchByName(@Query("q") bookName: String): VolumeQueryResult
+    suspend fun searchByName(@Query("q") bookName: String, @Query("maxResults") maxResults: String): VolumeQueryResult
 }
 
 /**
