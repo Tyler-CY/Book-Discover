@@ -34,7 +34,7 @@ class SaleInfoFragment : Fragment() {
 
             // Initialize buttons
             saleButton.setOnClickListener {
-                findNavController().navigate(R.id.action_saleInfoFragment_to_queryFragment)
+                findNavController().navigate(R.id.action_saleInfoFragment_to_volumeFragment)
             }
         }
 
