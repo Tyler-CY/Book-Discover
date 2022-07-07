@@ -4,13 +4,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/queryFragment">
+    app:startDestination="@id/resultVolumeListFragment">
 
     <fragment
         android:id="@+id/queryFragment"
         android:name="com.example.bookdiscover.result.ResultFragment"
         android:label="fragment_query"
-        tools:layout="@layout/fragment_query" >
+        tools:layout="@layout/fragment_result" >
         <action
             android:id="@+id/action_queryFragment_to_saleInfoFragment"
             app:destination="@id/saleInfoFragment" />
@@ -23,6 +23,15 @@
 
         <action
             android:id="@+id/action_saleInfoFragment_to_queryFragment"
+            app:destination="@id/queryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/resultVolumeListFragment"
+        android:name="com.example.bookdiscover.result.ResultVolumeListFragment"
+        android:label="fragment_result_volume_list"
+        tools:layout="@layout/fragment_result_volume_list" >
+        <action
+            android:id="@+id/action_resultVolumeListFragment_to_queryFragment"
             app:destination="@id/queryFragment" />
     </fragment>
 </navigation>
