@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.bookdiscover.network.GoogleBooksApi
+import com.example.bookdiscover.network.Volume
 import kotlinx.coroutines.launch
 
 /**
@@ -23,6 +24,10 @@ class QueryViewModel : ViewModel() {
     // The title of the first book in the query result
     private val _topResultTitle = MutableLiveData<String>()
     val topResultTitle: LiveData<String> = _topResultTitle
+
+    // The list of volume in the search result
+    private val _items = MutableLiveData<List<Volume>>()
+    val items: LiveData<List<Volume>> = _items
 
     /*
 
@@ -59,6 +64,7 @@ class QueryViewModel : ViewModel() {
                 _kind.value = queryResult.kind
                 _totalItems.value = queryResult.totalItems
                 _topResultTitle.value = queryResult.items[0].volumeInfo.toString().substring(0, 50)
+                _items.value = queryResult.items
 
             } catch (e: Exception){
                 e.printStackTrace()
