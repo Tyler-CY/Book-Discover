@@ -29,27 +29,7 @@ class ResultViewModel: ViewModel(){
     private val _items = MutableLiveData<List<Volume>>()
     val items: LiveData<List<Volume>> = _items
 
-    /*
 
-    private val _id = MutableLiveData<String>()
-    val id: LiveData<String> = _id
-
-    private val _volumeInfo = MutableLiveData<String>()
-    val volumeInfo: LiveData<String> = _volumeInfo
-
-    private val _userInfo = MutableLiveData<String>()
-    val userInfo: LiveData<String> = _userInfo
-
-    private val _saleInfo = MutableLiveData<String>()
-    val saleInfo: LiveData<String> = _saleInfo
-
-    private val _accessInfo = MutableLiveData<String>()
-    val accessInfo: LiveData<String> = _accessInfo
-
-    private val _searchInfo = MutableLiveData<String>()
-    val searchInfo: LiveData<String> = _searchInfo
-
-     */
 
     /**
      * Search for a book by name
