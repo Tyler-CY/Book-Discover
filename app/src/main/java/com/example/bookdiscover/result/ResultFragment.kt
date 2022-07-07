@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.bookdiscover.R
-import com.example.bookdiscover.databinding.FragmentQueryBinding
+import com.example.bookdiscover.databinding.FragmentResultBinding
 
 /**
  * The fragment class which shows the result overview; used in ResultActivity
@@ -24,7 +24,7 @@ class ResultFragment : Fragment() {
     ): View {
 
         // Data-binding with XML
-        val binding = FragmentQueryBinding.inflate(inflater)
+        val binding = FragmentResultBinding.inflate(inflater)
 
         binding.apply {
             // QueryFragment determines the lifecycle of the binding.

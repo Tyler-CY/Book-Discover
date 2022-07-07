@@ -16,7 +16,7 @@ class ResultActivity : AppCompatActivity() {
 
         // Default Code
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_result)
 
         // Navigation Controllers
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.main_fragment_container) as androidx.navigation.fragment.NavHostFragment
