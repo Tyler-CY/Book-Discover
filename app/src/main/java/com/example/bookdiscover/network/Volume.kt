@@ -13,9 +13,9 @@ annotation class VolumeInfoTitle
 
 
 @JsonClass(generateAdapter = true)
-data class Volume (
+data class Volume(
     val id: String,
-    val volumeInfo: Map<String, Any?>,
+    val volumeInfo: Map<String, Any?>? = null,
     val userInfo: Map<String, Any?>? = null,
     val saleInfo: Map<String, Any?>? = null,
     val accessInfo: Map<String, Any?>? = null,
