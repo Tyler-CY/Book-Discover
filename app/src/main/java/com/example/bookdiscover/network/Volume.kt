@@ -3,9 +3,7 @@ package com.example.bookdiscover.network
 import com.squareup.moshi.FromJson
 import com.squareup.moshi.JsonClass
 import com.squareup.moshi.JsonQualifier
-import com.squareup.moshi.JsonWriter
 import com.squareup.moshi.ToJson
-import org.jetbrains.annotations.Nullable
 
 @Retention(AnnotationRetention.RUNTIME)
 @JsonQualifier
