@@ -15,7 +15,8 @@ import com.example.bookdiscover.result.ResultViewModel
  * The fragment class which shows only the sales info of a particular book.
  */
 class SaleInfoFragment : Fragment() {
-    private val sharedViewModel: ResultViewModel by activityViewModels()
+
+    private val volumeViewModel: VolumeViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,12 +31,17 @@ class SaleInfoFragment : Fragment() {
             lifecycleOwner = viewLifecycleOwner
 
             // Give the binding access to the QueryViewModel class
-            viewModel = sharedViewModel
+//            viewModel = sharedViewModel
 
             // Initialize buttons
             saleButton.setOnClickListener {
                 findNavController().navigate(R.id.action_saleInfoFragment_to_volumeFragment)
             }
+        }
+
+
+        volumeViewModel.saleInfo.observe(viewLifecycleOwner){
+            binding.volumeSale.text = it!!.get("profit").toString()
         }
 
         return binding.root
