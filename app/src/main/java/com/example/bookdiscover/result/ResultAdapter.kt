@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.bookdiscover.R
 import com.example.bookdiscover.network.Volume
 import com.example.bookdiscover.volume.VolumeActivity
+import com.example.bookdiscover.volume.VolumeHolder
 
 class ResultAdapter (
     private val fragmentActivity: FragmentActivity,
@@ -36,7 +37,7 @@ class ResultAdapter (
 
             holder.titleView.setOnClickListener {
                 val intent = Intent(fragmentActivity, VolumeActivity::class.java)
-                intent.putExtra("POSITION", position)
+                VolumeHolder.setVolume(item)
                 fragmentActivity.startActivity(intent)
             }
         }
