@@ -41,7 +41,7 @@ class SaleInfoFragment : Fragment() {
 
 
         volumeViewModel.saleInfo.observe(viewLifecycleOwner){
-            binding.volumeSale.text = it!!.get("profit").toString()
+            binding.volumeSale.text = it!!.get("country").toString()
         }
 
         return binding.root
