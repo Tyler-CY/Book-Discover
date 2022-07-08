@@ -8,9 +8,12 @@ import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import com.example.bookdiscover.databinding.FragmentResultBinding
 
+/**
+ * The main fragment used in ResultActivity
+ */
 class ResultFragment : Fragment() {
 
-    // QueryViewModel shared by other volume fragments and QueryActivity
+    // ResultViewModel shared by other volume fragments and ResultActivity
     private val sharedViewModel: ResultViewModel by activityViewModels()
 
     override fun onCreateView(
@@ -22,7 +25,7 @@ class ResultFragment : Fragment() {
         val binding = FragmentResultBinding.inflate(inflater)
 
         binding.apply {
-            // QueryFragment determines the lifecycle of the binding.
+            // ResultViewModel determines the lifecycle of the binding.
             lifecycleOwner = viewLifecycleOwner
 
             viewModel = sharedViewModel

@@ -1,15 +1,14 @@
 package com.example.bookdiscover.volume
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.bookdiscover.R
 import com.example.bookdiscover.databinding.FragmentVolumeSaleInfoBinding
-import com.example.bookdiscover.result.ResultViewModel
 
 /**
  * The fragment class which shows only the sales info of a particular book.
@@ -40,8 +39,8 @@ class SaleInfoFragment : Fragment() {
         }
 
 
-        volumeViewModel.saleInfo.observe(viewLifecycleOwner){
-            binding.volumeSale.text = it!!.get("country").toString()
+        volumeViewModel.saleInfo.observe(viewLifecycleOwner) {
+            binding.volumeSale.text = it!!["country"].toString()
         }
 
         return binding.root

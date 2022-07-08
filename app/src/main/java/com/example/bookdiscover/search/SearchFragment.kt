@@ -10,6 +10,9 @@ import com.example.bookdiscover.SEARCH_NAME
 import com.example.bookdiscover.databinding.FragmentSearchBinding
 import com.example.bookdiscover.result.ResultActivity
 
+/**
+ * The main fragment used in SearchActivity
+ */
 class SearchFragment : Fragment() {
 
     override fun onCreateView(
@@ -20,19 +23,22 @@ class SearchFragment : Fragment() {
         // Data-binding with XML
         val binding = FragmentSearchBinding.inflate(inflater)
 
-        binding.apply{
-            // QueryFragment determines the lifecycle of the binding.
+        binding.apply {
+            // Set the lifecycleOwner
             lifecycleOwner = viewLifecycleOwner
 
-            // Initialize buttons
+            // submit button starts the ResultActivity, which calls the GoogleBooksApi to do the query
             submitButton.setOnClickListener {
                 val intent = Intent(activity, ResultActivity::class.java)
+
+                // Get the name from the nameText TextView and put it in the intent bundle
                 val name = nameText.text.toString()
                 intent.putExtra(SEARCH_NAME, name)
+
+                // Start the activity after setting up
                 startActivity(intent)
             }
         }
-
 
         return binding.root
     }

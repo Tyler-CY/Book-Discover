@@ -4,11 +4,12 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.bookdiscover.network.GoogleBooksApi
 import com.example.bookdiscover.network.Volume
-import com.example.bookdiscover.result.ResultViewModel
 import kotlinx.coroutines.launch
 
+/**
+ * The ViewModel used by the fragments under the "volume" package
+ */
 class VolumeViewModel : ViewModel() {
 
     private val _id = MutableLiveData<String>()
@@ -29,14 +30,14 @@ class VolumeViewModel : ViewModel() {
     private val _searchInfo = MutableLiveData<Map<String, Any?>?>()
     val searchInfo: LiveData<Map<String, Any?>?> = _searchInfo
 
+
     /**
      * Get a book from the ResultViewModel
      */
-
-
     fun initialize(volume: Volume) {
         viewModelScope.launch {
             try{
+                // Update the values
                 _id.value = volume.id
                 _volumeInfo.value = volume.volumeInfo
                 _userInfo.value = volume.userInfo

@@ -9,25 +9,31 @@ import com.squareup.moshi.ToJson
 @JsonQualifier
 annotation class VolumeInfoTitle
 
-
+/**
+ * data class for a volume (i.e. a book)
+ */
 @JsonClass(generateAdapter = true)
 data class Volume(
     val id: String,
+    // all Info Maps are optional
     val volumeInfo: Map<String, Any?>? = null,
     val userInfo: Map<String, Any?>? = null,
     val saleInfo: Map<String, Any?>? = null,
     val accessInfo: Map<String, Any?>? = null,
     val searchInfo: Map<String, Any?>? = null
-//    @VolumeInfoTitle val title: String
 )
 
 // TODO: toJson not working: com.squareup.moshi.JsonDataException: Required value 'title' missing at $.items[1]
 class VolumeInfoAdapter {
-    @ToJson fun toJson(title: String): String {
+    @ToJson
+    fun toJson(title: String): String {
         return title
     }
-    @FromJson @VolumeInfoTitle fun fromJson(volumeInfo: Map<String, Any?>): String {
-        return volumeInfo.get("title").toString()
+
+    @FromJson
+    @VolumeInfoTitle
+    fun fromJson(volumeInfo: Map<String, Any?>): String {
+        return volumeInfo["title"].toString()
     }
 }
 
