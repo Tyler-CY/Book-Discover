@@ -61,7 +61,10 @@ class ResultAdapter(
         imgUrl = imgUrl.replace("http://", "https://")
         Log.d("imgUrl", imgUrl)
 
-        holder.bookView.load(imgUrl)
+        holder.bookView.load(imgUrl){
+            placeholder(R.drawable.ic_hourglass_empty_48px)
+            error(R.drawable.ic_broken_image_48px)
+        }
 
         // Add a click listener for each title TextView to allow the user to see the details of the book
         holder.titleView.setOnClickListener {
