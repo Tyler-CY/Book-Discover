@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
 import com.example.bookdiscover.R
-import com.example.bookdiscover.SEARCH_NAME
+import com.example.bookdiscover.QUERY_STRING
 
 /**
  * The activity class for showing the search result
@@ -21,7 +21,7 @@ class ResultActivity : AppCompatActivity() {
         val sharedViewModel: ResultViewModel by viewModels()
 
         // Invoke searchByName method in sharedViewModel to search for book based on user's filter
-        val queryParameters = intent.getStringExtra(SEARCH_NAME).toString()
+        val queryParameters = intent.getStringExtra(QUERY_STRING).toString()
         // searchByName calls GoogleBooksApi to perform a search
         sharedViewModel.searchByName(queryParameters)
     }

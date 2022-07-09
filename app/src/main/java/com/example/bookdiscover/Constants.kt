@@ -1,3 +1,3 @@
 package com.example.bookdiscover
 
-const val SEARCH_NAME = "SEARCH_NAME"
+const val QUERY_STRING = "QUERY_STRING"
