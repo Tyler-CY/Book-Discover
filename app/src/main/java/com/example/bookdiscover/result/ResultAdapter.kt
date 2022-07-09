@@ -73,19 +73,16 @@ class ResultAdapter(
 
                 val authors = it[JSON_AUTHORS]
                 authors?.let {
-                    val authorList = (authors as List<*>)
-
-                    var authorString = ""
-                    for (i in 0..min(3, authorList.size)){
-                        authorString += (authorList[i].toString() + ", ")
+                    val length = (authors as List<*>).size
+                    if (length == 1){
+                        holder.authorView.text = authors[0].toString()
                     }
-                    authorString.dropLast(2) // Rmoves ", "
-                    if (authorList.size > 3){
-                        authorString += " et al."
+                    else if (length == 2){
+                        holder.authorView.text = authors[0].toString() + ", " + authors[1].toString()
                     }
-                    holder.authorView.text = authorString
-
-//                    holder.authorView.text = (authors as List<*>)[0].toString()
+                    else {
+                        holder.authorView.text = authors[0].toString() + ", " + authors[1].toString() + " et al."
+                    }
                 }
 
 
