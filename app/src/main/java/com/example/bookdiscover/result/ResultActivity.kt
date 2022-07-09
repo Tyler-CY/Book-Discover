@@ -17,11 +17,20 @@ class ResultActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_result)
 
+        // Initialize the sharedViewModel by getting query result using GoogleBooksApi
+        initializeViewModel()
+    }
+
+    /**
+     * Called the query method in the shared ViewModel to get query result
+     */
+    private fun initializeViewModel() {
         // ResultViewModel shared by other volume fragments and ResultActivity
         val sharedViewModel: ResultViewModel by viewModels()
 
         // Invoke searchByName method in sharedViewModel to search for book based on user's filter
         val queryParameters = intent.getStringExtra(QUERY_STRING).toString()
+
         // searchByName calls GoogleBooksApi to perform a search
         sharedViewModel.searchByName(queryParameters)
     }

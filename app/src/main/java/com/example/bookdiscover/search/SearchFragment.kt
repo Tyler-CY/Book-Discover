@@ -32,7 +32,7 @@ class SearchFragment : Fragment() {
                 val intent = Intent(activity, ResultActivity::class.java)
 
                 // Get the name from the nameText TextView and put it in the intent bundle
-                var parsedQueryString = ""
+                var parsedQueryString: String
                 val queryKeyword = queryString.text.toString()
                 val queryAuthor = queryAuthor.text.toString()
                 val queryPublisher = queryPublisher.text.toString()
@@ -41,6 +41,15 @@ class SearchFragment : Fragment() {
                 parsedQueryString = queryKeyword
                 parsedQueryString = parseQuery(parsedQueryString, "inauthor", queryAuthor)
                 parsedQueryString = parseQuery(parsedQueryString, "inpublisher", queryPublisher)
+
+                if (queryCategory != "Categories") {
+                    parsedQueryString = parseQuery(parsedQueryString, "subject", queryCategory)
+                }
+
+                val queryIdType = queryIdType.selectedItem.toString()
+                val queryIdString = queryId.text.toString()
+                parsedQueryString = parseQuery(parsedQueryString, queryIdType.lowercase(), queryIdString)
+
 
 
                 // TODO: get dropdown menu
@@ -55,10 +64,12 @@ class SearchFragment : Fragment() {
         return binding.root
     }
 
+    /**
+     * Update the queryString using the new (queryKey, queryValue) pair
+     */
     private fun parseQuery(parsedQueryString: String, queryKey: String, queryValue: String): String {
-        var updatedQueryString = ""
 
-        if (queryValue.length !== 0){
+        if (queryValue.isNotEmpty()){
             return parsedQueryString + "+" + queryKey + ":" + queryValue
         }
 

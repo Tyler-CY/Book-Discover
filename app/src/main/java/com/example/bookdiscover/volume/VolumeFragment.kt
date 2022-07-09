@@ -37,7 +37,7 @@ class VolumeFragment : Fragment() {
 
         // TODO: For now, set the text as the title
         volumeViewModel.volumeInfo.observe(viewLifecycleOwner) {
-            binding.volumeTitle.text = it!!.get("title").toString()
+            binding.volumeTitle.text = it!!["title"].toString()
         }
 
         return binding.root

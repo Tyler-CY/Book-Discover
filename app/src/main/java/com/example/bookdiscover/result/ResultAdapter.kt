@@ -1,7 +1,6 @@
 package com.example.bookdiscover.result
 
 import android.content.Intent
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,7 +9,7 @@ import android.widget.TextView
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
-import com.example.bookdiscover.R
+import com.example.bookdiscover.*
 import com.example.bookdiscover.network.Volume
 import com.example.bookdiscover.volume.VolumeActivity
 import com.example.bookdiscover.volume.VolumeHolder
@@ -48,29 +47,33 @@ class ResultAdapter(
      */
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val item = dataset[position]
-        // TODO: Ensure volumeInfo is non-null
 
-
-
-
-        // TODO: don't use try catch and use proper json parsing instead.
         try{
-            // Set the title TextView
-            holder.titleView.text = item.volumeInfo!!["title"].toString()
-            // Set the author TextView
-            holder.authorView.text = (item.volumeInfo["authors"] as List<*>)[0].toString()
+            item.volumeInfo?.let info@{
 
-            // Set the book cover thumbnail in the ImageView
-            Log.d("VOLUMEINFO", item.volumeInfo.toString())
+                // Update the TextViews below
 
-            var imgUrl = (item.volumeInfo["imageLinks"] as Map<String, Any?>)["thumbnail"].toString()
-            // Replace http:// with https://
-            imgUrl = imgUrl.replace("http://", "https://")
-            Log.d("imgUrl", imgUrl)
+                val title = it[JSON_TITLE]
+                title?.let {
+                    // Set the title TextView
+                    holder.titleView.text = title.toString()
+                }
 
-            holder.bookView.load(imgUrl){
-                placeholder(R.drawable.ic_hourglass_empty_48px)
-                error(R.drawable.ic_broken_image_48px)
+                val authors = it[JSON_AUTHORS]
+                authors?.let {
+                    holder.authorView.text = (authors as List<*>)[0].toString()
+                }
+
+                val imgUrl = it[JSON_IMAGELINKS]
+                imgUrl?.let {
+                    val link = (imgUrl as Map<*, *>)[JSON_THUMBNAIL].toString().replace("http://", "https://")
+
+                    // Load the image and setup placeholder and error images
+                    holder.bookView.load(link){
+                        placeholder(R.drawable.ic_hourglass_empty_48px)
+                        error(R.drawable.ic_broken_image_48px)
+                    }
+                }
             }
         } catch (e: Exception){
             e.printStackTrace()
@@ -79,10 +82,12 @@ class ResultAdapter(
 
         // Add a click listener for each title TextView to allow the user to see the details of the book
         holder.titleView.setOnClickListener {
-            // Start the VolumeActivity to inspect the details of the book selected
-            val intent = Intent(fragmentActivity, VolumeActivity::class.java)
+
             // VolumeHolder holds the current book selected
             VolumeHolder.setVolume(item)
+
+            // Start the VolumeActivity to inspect the details of the book selected
+            val intent = Intent(fragmentActivity, VolumeActivity::class.java)
             // Start the activity after setting up
             fragmentActivity.startActivity(intent)
         }

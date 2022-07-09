@@ -32,7 +32,7 @@ private val retrofit = Retrofit.Builder()
 interface GoogleBooksApiService {
 
     @GET("v1/volumes")
-    suspend fun searchByName(@Query("q") bookName: String, @Query("maxResults") maxResults: String): VolumeQueryResult
+    suspend fun searchByName(@Query("q") bookName: String, @Query("maxResults") maxResults: String = "25"): VolumeQueryResult
 }
 
 /**

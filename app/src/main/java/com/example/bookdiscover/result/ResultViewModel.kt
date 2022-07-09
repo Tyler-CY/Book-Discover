@@ -1,11 +1,14 @@
 package com.example.bookdiscover.result
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.bookdiscover.QUERY_MAXRESULTS_DEFAULT
 import com.example.bookdiscover.network.GoogleBooksApi
 import com.example.bookdiscover.network.Volume
+import com.example.bookdiscover.network.VolumeQueryResult
 import kotlinx.coroutines.launch
 
 /**
@@ -38,17 +41,23 @@ class ResultViewModel: ViewModel(){
         viewModelScope.launch {
             try{
 
+                Log.d("queryString", bookName) // e.g. How to Build a Car+inauthor:Adrian Newey+inpublisher:HarperCollins+isbn:9780008196813
+
                 // Get the query result
-                val queryResult = GoogleBooksApi.retrofitService.searchByName(bookName, "25")
+                val queryResult = GoogleBooksApi.retrofitService.searchByName(bookName, QUERY_MAXRESULTS_DEFAULT)
                 // Unpack the query result into different attributes
-                _kind.value = queryResult.kind
-                _totalItems.value = queryResult.totalItems
-                _topResultTitle.value = queryResult.items[0].volumeInfo.toString().substring(0, 50)
-                _items.value = queryResult.items
+                unpackQueryResult(queryResult)
 
             } catch (e: Exception){
                 e.printStackTrace()
             }
         }
+    }
+
+    private fun unpackQueryResult(queryResult: VolumeQueryResult) {
+        _kind.value = queryResult.kind
+        _totalItems.value = queryResult.totalItems
+        _topResultTitle.value = queryResult.items[0].volumeInfo.toString().substring(0, 50)
+        _items.value = queryResult.items
     }
 }
