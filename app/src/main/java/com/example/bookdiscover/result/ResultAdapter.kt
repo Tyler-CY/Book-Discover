@@ -13,6 +13,7 @@ import com.example.bookdiscover.*
 import com.example.bookdiscover.network.Volume
 import com.example.bookdiscover.volume.VolumeActivity
 import com.example.bookdiscover.volume.VolumeHolder
+import kotlin.math.min
 
 /**
  * The adapter for the RecyclerView in ResultFragment
@@ -53,17 +54,6 @@ class ResultAdapter(
 
                 // Update the TextViews below
 
-                val title = it[JSON_TITLE]
-                title?.let {
-                    // Set the title TextView
-                    holder.titleView.text = title.toString()
-                }
-
-                val authors = it[JSON_AUTHORS]
-                authors?.let {
-                    holder.authorView.text = (authors as List<*>)[0].toString()
-                }
-
                 val imgUrl = it[JSON_IMAGELINKS]
                 imgUrl?.let {
                     val link = (imgUrl as Map<*, *>)[JSON_THUMBNAIL].toString().replace("http://", "https://")
@@ -74,6 +64,31 @@ class ResultAdapter(
                         error(R.drawable.ic_broken_image_48px)
                     }
                 }
+
+                val title = it[JSON_TITLE]
+                title?.let {
+                    // Set the title TextView
+                    holder.titleView.text = title.toString()
+                }
+
+                val authors = it[JSON_AUTHORS]
+                authors?.let {
+                    val authorList = (authors as List<*>)
+
+                    var authorString = ""
+                    for (i in 0..min(3, authorList.size)){
+                        authorString += (authorList[i].toString() + ", ")
+                    }
+                    authorString.dropLast(2) // Rmoves ", "
+                    if (authorList.size > 3){
+                        authorString += " et al."
+                    }
+                    holder.authorView.text = authorString
+
+//                    holder.authorView.text = (authors as List<*>)[0].toString()
+                }
+
+
             }
         } catch (e: Exception){
             e.printStackTrace()
