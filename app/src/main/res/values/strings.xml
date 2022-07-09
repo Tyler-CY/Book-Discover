@@ -1,5 +1,19 @@
 <resources>
     <string name="app_name">BookDiscover</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string-array name="subjects">
+        <item>Categories</item>
+        <item>Arts</item>
+        <item>Horror</item>
+        <item>Sports</item>
+        <item>Technology</item>
+    </string-array>
+
+    <string-array name="id_types">
+        <item>ISBN</item>
+        <item>LCCN</item>
+        <item>OCLC</item>
+    </string-array>
+
+
 </resources>
