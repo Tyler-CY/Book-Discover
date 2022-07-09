@@ -50,21 +50,32 @@ class ResultAdapter(
         val item = dataset[position]
         // TODO: Ensure volumeInfo is non-null
 
-        // Set the title TextView
-        holder.titleView.text = item.volumeInfo!!["title"].toString()
-        // Set the author TextView
-        holder.authorView.text = (item.volumeInfo["authors"] as List<*>)[0].toString()
 
-        // Set the book cover thumbnail in the ImageView
-        var imgUrl = (item.volumeInfo["imageLinks"] as Map<*, *>)["thumbnail"].toString()
-        // Replace http:// with https://
-        imgUrl = imgUrl.replace("http://", "https://")
-        Log.d("imgUrl", imgUrl)
 
-        holder.bookView.load(imgUrl){
-            placeholder(R.drawable.ic_hourglass_empty_48px)
-            error(R.drawable.ic_broken_image_48px)
+
+        // TODO: don't use try catch and use proper json parsing instead.
+        try{
+            // Set the title TextView
+            holder.titleView.text = item.volumeInfo!!["title"].toString()
+            // Set the author TextView
+            holder.authorView.text = (item.volumeInfo["authors"] as List<*>)[0].toString()
+
+            // Set the book cover thumbnail in the ImageView
+            Log.d("VOLUMEINFO", item.volumeInfo.toString())
+
+            var imgUrl = (item.volumeInfo["imageLinks"] as Map<String, Any?>)["thumbnail"].toString()
+            // Replace http:// with https://
+            imgUrl = imgUrl.replace("http://", "https://")
+            Log.d("imgUrl", imgUrl)
+
+            holder.bookView.load(imgUrl){
+                placeholder(R.drawable.ic_hourglass_empty_48px)
+                error(R.drawable.ic_broken_image_48px)
+            }
+        } catch (e: Exception){
+            e.printStackTrace()
         }
+
 
         // Add a click listener for each title TextView to allow the user to see the details of the book
         holder.titleView.setOnClickListener {
