@@ -1,12 +1,15 @@
 package com.example.bookdiscover.result
 
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
 import com.example.bookdiscover.R
 import com.example.bookdiscover.network.Volume
 import com.example.bookdiscover.volume.VolumeActivity
@@ -26,6 +29,7 @@ class ResultAdapter(
     class ItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val titleView: TextView = view.findViewById(R.id.item_title)
         val authorView: TextView = view.findViewById(R.id.item_author)
+        val bookView: ImageView = view.findViewById(R.id.book_cover)
     }
 
     /**
@@ -45,8 +49,19 @@ class ResultAdapter(
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val item = dataset[position]
         // TODO: Ensure volumeInfo is non-null
+
+        // Set the title TextView
         holder.titleView.text = item.volumeInfo!!["title"].toString()
+        // Set the author TextView
         holder.authorView.text = (item.volumeInfo["authors"] as List<*>)[0].toString()
+
+        // Set the book cover thumbnail in the ImageView
+        var imgUrl = (item.volumeInfo["imageLinks"] as Map<*, *>)["thumbnail"].toString()
+        // Replace http:// with https://
+        imgUrl = imgUrl.replace("http://", "https://")
+        Log.d("imgUrl", imgUrl)
+
+        holder.bookView.load(imgUrl)
 
         // Add a click listener for each title TextView to allow the user to see the details of the book
         holder.titleView.setOnClickListener {
