@@ -29,8 +29,8 @@
             android:id="@+id/queryAuthor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="37dp"
             android:autofillHints="name"
+            android:layout_marginTop="25dp"
             android:ems="10"
 
             android:hint="Search by Author"
