@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".volume.VolumeFragment">
 
@@ -13,21 +14,115 @@
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_margin="16dp"
+        android:orientation="vertical"
+        >
+
 
         <TextView
             android:id="@+id/volume_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            />
+            android:textSize="25sp"
+            android:layout_margin="8dp"
+            android:gravity="center"
+            tools:text="MY TITLE AND MY SUBTITLES" />
+
+        <TextView
+            android:id="@+id/volume_author"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:gravity="center"
+            tools:text="By Mary, John, Wattson, Benny Boy\nPublished By Burger Ltd." />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:layout_margin="16dp"
+            android:layout_weight="10">
+
+            <ImageView
+                android:id="@+id/volume_cover_img"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:scaleType="fitCenter"
+                android:adjustViewBounds="true"
+                android:contentDescription="Book Cover Image"
+                tools:src="@drawable/sample_book_cover_mini" />
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_margin="16dp"
+                android:layout_weight="1">
+                <TextView
+                    android:id="@+id/volume_category"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:text="Sports and Recreations" />
+
+                <TextView
+                    android:id="@+id/volume_language"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:text="Available in English, Chinese, French" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="5"/>
+
+                <TextView
+                    android:id="@+id/volume_average_rating"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:text="✰✰✰✰✰" />
+
+                <TextView
+                    android:id="@+id/volume_ratings_count"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:text="from 1500 reviews"  />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="5"
+            android:layout_margin="16dp">
+
+            <TextView
+                android:id="@+id/volume_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum." />
+        </ScrollView>
+
+
 
 
         <Button
             android:id="@+id/queryButton"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Change Fragment">
-        </Button>
+            android:layout_height="0dp"
+            android:text="Read more on Google Books"
+            android:layout_margin="16dp"
+            android:layout_weight="2" />
 
 
     </androidx.appcompat.widget.LinearLayoutCompat>
