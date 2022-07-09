@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.bookdiscover.SEARCH_NAME
+import com.example.bookdiscover.QUERY_STRING
 import com.example.bookdiscover.databinding.FragmentSearchBinding
 import com.example.bookdiscover.result.ResultActivity
 
@@ -32,8 +32,20 @@ class SearchFragment : Fragment() {
                 val intent = Intent(activity, ResultActivity::class.java)
 
                 // Get the name from the nameText TextView and put it in the intent bundle
-                val name = nameText.text.toString()
-                intent.putExtra(SEARCH_NAME, name)
+                var parsedQueryString = ""
+                val queryKeyword = queryString.text.toString()
+                val queryAuthor = queryAuthor.text.toString()
+                val queryPublisher = queryPublisher.text.toString()
+                val queryCategory = querySubject.selectedItem.toString()
+
+                parsedQueryString = queryKeyword
+                parsedQueryString = parseQuery(parsedQueryString, "inauthor", queryAuthor)
+                parsedQueryString = parseQuery(parsedQueryString, "inpublisher", queryPublisher)
+
+
+                // TODO: get dropdown menu
+
+                intent.putExtra(QUERY_STRING, parsedQueryString)
 
                 // Start the activity after setting up
                 startActivity(intent)
@@ -41,5 +53,15 @@ class SearchFragment : Fragment() {
         }
 
         return binding.root
+    }
+
+    private fun parseQuery(parsedQueryString: String, queryKey: String, queryValue: String): String {
+        var updatedQueryString = ""
+
+        if (queryValue.length !== 0){
+            return parsedQueryString + "+" + queryKey + ":" + queryValue
+        }
+
+        return parsedQueryString
     }
 }
