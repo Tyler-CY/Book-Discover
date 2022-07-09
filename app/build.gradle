@@ -53,17 +53,21 @@ dependencies {
     // Retrofit with Moshi Converter
     implementation 'com.squareup.retrofit2:converter-moshi:2.9.0'
 
-    // For viewModelScope
+    // viewModelScope
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.0'
-    // For activity viewModels
+    // activity viewModels
     def activity_version = "1.5.0"
     implementation "androidx.activity:activity-ktx:$activity_version"
-    // For fragment viewModels
+    // fragment viewModels
     def fragment_version = "1.5.0"
     implementation "androidx.fragment:fragment-ktx:$fragment_version"
 
-
+    // Navigation (nav graph)
     def nav_version = "2.5.0"
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+
+    // Coil
+    def coil_version = "2.1.0"
+    implementation "io.coil-kt:coil:$coil_version"
 }
