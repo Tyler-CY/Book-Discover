@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import com.example.bookdiscover.search.SearchActivity
+import com.google.android.material.snackbar.Snackbar
 
 /**
  * The starting page of the Android application.
@@ -15,10 +16,25 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         // This button is responsible for starting SearchActivity
-        val button = findViewById<Button>(R.id.button)
-        button.setOnClickListener{
+        val searchButton = findViewById<Button>(R.id.search_button)
+        searchButton.setOnClickListener{
             val intent = Intent(this, SearchActivity::class.java)
             startActivity(intent)
+        }
+
+        val discoverButton = findViewById<Button>(R.id.discover_button)
+        discoverButton.setOnClickListener{
+            Snackbar.make(it, "Discover", Snackbar.LENGTH_SHORT).show()
+        }
+
+        val trendingButton = findViewById<Button>(R.id.trending_button)
+        trendingButton.setOnClickListener{
+            Snackbar.make(it, "Trending", Snackbar.LENGTH_SHORT).show()
+        }
+
+        val settingsButton = findViewById<Button>(R.id.settings_button)
+        settingsButton.setOnClickListener{
+            Snackbar.make(it, "Settings", Snackbar.LENGTH_SHORT).show()
         }
     }
 }
