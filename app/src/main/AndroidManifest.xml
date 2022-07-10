@@ -11,6 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BookDiscover">
         <activity
+            android:name=".genre.GenreActivity"
+            android:exported="true" />
+        <activity
             android:name=".volume.VolumeActivity"
             android:exported="true" />
         <activity
@@ -24,10 +27,10 @@
         </activity>
         <activity
             android:name=".search.SearchActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".result.ResultActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
     </application>
 
 </manifest>
