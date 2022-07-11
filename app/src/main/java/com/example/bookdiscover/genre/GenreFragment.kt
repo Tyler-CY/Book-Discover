@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.GridLayoutManager
 import com.example.bookdiscover.R
 import com.example.bookdiscover.databinding.FragmentGenreBinding
 import com.example.bookdiscover.result.ResultAdapter
@@ -30,6 +31,7 @@ class GenreFragment : Fragment() {
         val recyclerView = binding.genreRecyclerView
         recyclerView.adapter = GenreAdapter(this@GenreFragment.activity!!)
         recyclerView.setHasFixedSize(true)
+        recyclerView.layoutManager = GridLayoutManager(this@GenreFragment.activity!!, 3)
 
 
 
