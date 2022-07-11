@@ -20,18 +20,17 @@ data class Volume(
     val userInfo: Map<String, Any?>? = null,
     val saleInfo: Map<String, Any?>? = null,
     val accessInfo: Map<String, Any?>? = null,
-    val searchInfo: Map<String, Any?>? = null
+    val searchInfo: Map<String, Any?>? = null,
 )
 
-// TODO: toJson not working: com.squareup.moshi.JsonDataException: Required value 'title' missing at $.items[1]
+
 class VolumeInfoAdapter {
     @ToJson
     fun toJson(title: String): String {
         return title
     }
 
-    @FromJson
-    @VolumeInfoTitle
+    @FromJson @VolumeInfoTitle
     fun fromJson(volumeInfo: Map<String, Any?>): String {
         return volumeInfo["title"].toString()
     }

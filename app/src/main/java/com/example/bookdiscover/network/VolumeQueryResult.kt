@@ -18,5 +18,5 @@ data class VolumeQueryResult(
 
     // A JSON array of Volume JSON objects
     @Json(name = "items")
-    val items: List<Volume>
+    val items: List<Volume>,
 )

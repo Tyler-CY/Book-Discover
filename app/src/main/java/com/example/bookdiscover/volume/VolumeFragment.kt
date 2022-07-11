@@ -12,6 +12,8 @@ import com.example.bookdiscover.JSON_IMAGELINKS
 import com.example.bookdiscover.JSON_THUMBNAIL
 import com.example.bookdiscover.R
 import com.example.bookdiscover.databinding.FragmentVolumeBinding
+import kotlin.math.roundToInt
+
 
 /**
  * The fragment class which shows the result overview; used in ResultActivity
@@ -40,26 +42,47 @@ class VolumeFragment : Fragment() {
 
         // TODO: For now, set the text as the title
         volumeViewModel.volumeInfo.observe(viewLifecycleOwner) {
-            binding.volumeTitle.text = it!!["title"].toString()
-            binding.volumeAuthor.text = (it["authors"] as List<*>).joinToString()
-            binding.volumeDescription.text = it["description"].toString()
-            binding.volumeCategory.text = (it["categories"] as List<*>)[0].toString()
-            when(it["language"].toString()){
-                "en" -> {binding.volumeLanguage.text = "Available in English"}
-            }
 
-
-            if(it["averageRating"].toString() != "null"){
-                var ratingString = ""
-                for (i in 0..it["averageRating"].toString().substring(0, 1).toInt()) {
-                    ratingString += "⭐"
-                }
-                binding.volumeAverageRating.text = ratingString
-            }
-
-
-            binding.volumeRatingsCount.text = "From " + it["ratingsCount"].toString() + " reviews"
+            // Extract the needed information
+            val title = it!!["title"].toString()
+            val authors = (it["authors"] as List<*>).joinToString()
+            val descriptions = it["description"].toString()
+            val categories = (it["categories"] as List<*>)[0].toString()
+            val language = it["language"].toString()
+            val averageRating = it["averageRating"].toString()
+            val ratingCounts = it["ratingsCount"].toString()
             val imgUrl = it[JSON_IMAGELINKS]
+
+
+            binding.volumeTitle.text = title
+            binding.volumeAuthor.text = authors
+            binding.volumeDescription.text = descriptions
+            binding.volumeCategory.text = categories
+
+
+            when(language){
+                "en" -> {binding.volumeLanguage.text = "Available in English"}
+                else -> {binding.volumeLanguage.text = "Not available in English"}
+            }
+
+
+            when(averageRating.substring(0, 1)){
+                "0" -> binding.volumeAverageRating.text = "⭐"
+                "1" -> binding.volumeAverageRating.text = "⭐"
+                "2" -> binding.volumeAverageRating.text = "⭐⭐"
+                "3" -> binding.volumeAverageRating.text = "⭐⭐⭐"
+                "4" -> binding.volumeAverageRating.text = "⭐⭐⭐⭐"
+                "5" -> binding.volumeAverageRating.text = "⭐⭐⭐⭐⭐"
+                else -> binding.volumeAverageRating.text = "No ratings available"
+            }
+
+            if (ratingCounts != "null"){
+                binding.volumeRatingsCount.text = "From " + ratingCounts.toFloat().roundToInt().toString() + " reviews"
+            }
+            else {
+                binding.volumeRatingsCount.text = "No reviews available"
+            }
+
             imgUrl?.let {
                 val link = (imgUrl as Map<*, *>)[JSON_THUMBNAIL].toString().replace("http://", "https://")
 
