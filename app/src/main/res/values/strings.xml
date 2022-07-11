@@ -1,12 +1,60 @@
 <resources>
     <string name="app_name">BookDiscover</string>
 
+    <!--    Complete BISAC Subject Headings List, 2021 Edition-->
     <string-array name="subjects">
-        <item>Categories</item>
-        <item>Arts</item>
-        <item>Horror</item>
-        <item>Sports</item>
-        <item>Technology</item>
+        <item>ANTIQUES &amp; COLLECTIBLES</item>
+        <item>Architecture</item>
+        <item>Art</item>
+        <item>Bibles</item>
+        <item>Biography &amp; Autobiography</item>
+        <item>Body, Mind and Spirit</item>
+        <item>Business &amp; Economics</item>
+        <item>Comics &amp; Graphic Novels</item>
+        <item>Computers</item>
+        <item>Cooking</item>
+        <item>Crafts &amp; Hobbies</item>
+        <item>Design</item>
+        <item>Drama</item>
+        <item>Education</item>
+        <item>Family &amp; Relationships</item>
+        <item>Fiction</item>
+        <item>Foreign Language Study</item>
+        <item>Games &amp; Activities</item>
+        <item>Gardening </item>
+        <item>Health &amp; Fitness</item>
+        <item>History</item>
+        <item>House &amp; Home</item>
+        <item>Humor</item>
+        <item>Juvenile</item>
+        <item>Language Arts &amp; Disciplines</item>
+        <item>Law</item>
+        <item>Literary Collections</item>
+        <item>Literary Criticism</item>
+        <item>Mathematics</item>
+        <item>Medical</item>
+        <item>Music</item>
+        <item>Nature</item>
+        <item>Performing Arts</item>
+        <item>Pets</item>
+        <item>Philosophy </item>
+        <item>Photography</item>
+        <item>Poetry</item>
+        <item>Political Science</item>
+        <item>Psychology</item>
+        <item>Reference</item>
+        <item>Religion</item>
+        <item>Science</item>
+        <item>Self-Help</item>
+        <item>Social Science</item>
+        <item>Sports &amp; Recreation</item>
+        <item>Study Aids</item>
+        <item>Technology &amp; Engineering</item>
+        <item>Transportation</item>
+        <item>Travel</item>
+        <item>True Crime</item>
+        <item>Young Adult Fiction</item>
+        <item>Young Adult Nonfiction</item>
     </string-array>
 
     <string-array name="id_types">
@@ -29,6 +77,8 @@
     <string name="attachment_title">Download incoming attachments</string>
     <string name="attachment_summary_on">Automatically download attachments for incoming emails</string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>
