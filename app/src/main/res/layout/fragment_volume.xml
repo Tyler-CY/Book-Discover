@@ -65,20 +65,22 @@
                     android:id="@+id/volume_category"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="1"
+                    android:layout_weight="2"
                     android:text="Sports and Recreations" />
-
-                <TextView
-                    android:id="@+id/volume_language"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:text="Available in English, Chinese, French" />
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="5"/>
+
+                <TextView
+                    android:id="@+id/volume_language"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="2"
+                    android:text="Available in English, Chinese, French" />
+
+
 
                 <TextView
                     android:id="@+id/volume_average_rating"

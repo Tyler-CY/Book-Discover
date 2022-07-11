@@ -70,7 +70,7 @@
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:id="@+id/linearLayoutCompat"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
             android:orientation="horizontal"
@@ -80,11 +80,12 @@
 
             <Spinner
                 android:id="@+id/queryIdType"
-                android:layout_width="115dp"
+                android:layout_width="wrap_content"
                 android:layout_height="23dp"
                 android:layout_marginStart="16dp"
                 android:entries="@array/id_types"
                 android:spinnerMode="dropdown"
+                android:layout_weight="1"
                 tools:layout_editor_absoluteY="358dp" />
 
             <EditText
@@ -94,7 +95,7 @@
                 android:autofillHints="name"
                 android:ems="10"
                 android:hint="ISBN/LCCN/OCLC"
-
+                android:layout_weight="10"
                 android:inputType="textAutoCorrect"
 
 
