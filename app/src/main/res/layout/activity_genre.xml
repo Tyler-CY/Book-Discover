@@ -5,11 +5,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+
     tools:context=".genre.GenreActivity">
 
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/search_fragment_container"
+        android:id="@+id/genre_fragment_container"
 
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -20,7 +20,5 @@
         app:layout_constraintTop_toTopOf="parent"
 
         android:name="com.example.bookdiscover.genre.GenreFragment" />
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
