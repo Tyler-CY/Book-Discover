@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.bookdiscover.R
 import com.example.bookdiscover.databinding.FragmentGenreBinding
-import com.example.bookdiscover.databinding.FragmentResultBinding
 import com.example.bookdiscover.result.ResultAdapter
 
 
@@ -24,18 +23,14 @@ class GenreFragment : Fragment() {
         binding.apply {
             // ResultViewModel determines the lifecycle of the binding.
             lifecycleOwner = viewLifecycleOwner
-
-//            viewModel = sharedViewModel
         }
 
 
-//        sharedViewModel.items.observe(this) {
-//            val dataset = sharedViewModel.items.value!!
-//
-//            val recyclerView = binding.recyclerView
-//            recyclerView.adapter = ResultAdapter(this@ResultFragment.activity!!, dataset)
-//            recyclerView.setHasFixedSize(true)
-//        }
+
+        val recyclerView = binding.genreRecyclerView
+        recyclerView.adapter = GenreAdapter(this@GenreFragment.activity!!)
+        recyclerView.setHasFixedSize(true)
+
 
 
         // Inflate the layout for this fragment
