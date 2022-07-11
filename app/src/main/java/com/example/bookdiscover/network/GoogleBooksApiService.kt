@@ -33,9 +33,6 @@ interface GoogleBooksApiService {
 
     @GET("v1/volumes")
     suspend fun searchByName(@Query("q") bookName: String, @Query("maxResults") maxResults: String = "25"): VolumeQueryResult
-
-    @GET("v1/volumes")
-    suspend fun searchByGenre(@Query("q") queryString: String, @Query("maxResults") maxResults: String = "25"): VolumeQueryResult
 }
 
 /**
