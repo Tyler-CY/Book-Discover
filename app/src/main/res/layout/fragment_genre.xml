@@ -14,7 +14,7 @@
             android:layout_height="match_parent"
 
             android:scrollbars="vertical"
-            app:layoutManager="LinearLayoutManager">
+            >
 
         </androidx.recyclerview.widget.RecyclerView>
 
