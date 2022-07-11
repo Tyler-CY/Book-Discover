@@ -40,7 +40,7 @@ class SaleInfoFragment : Fragment() {
 
 
         volumeViewModel.saleInfo.observe(viewLifecycleOwner) {
-            binding.volumeSale.text = it!!["country"].toString()
+            binding.volumeSale.text = "Available on Google Books"
         }
 
         return binding.root
