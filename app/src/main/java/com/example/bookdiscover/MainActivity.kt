@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import com.example.bookdiscover.genre.GenreActivity
 import com.example.bookdiscover.search.SearchActivity
 import com.google.android.material.snackbar.Snackbar
 
@@ -24,7 +25,8 @@ class MainActivity : AppCompatActivity() {
 
         val discoverButton = findViewById<Button>(R.id.discover_button)
         discoverButton.setOnClickListener{
-            Snackbar.make(it, "Discover", Snackbar.LENGTH_SHORT).show()
+            val intent = Intent(this, GenreActivity::class.java)
+            startActivity(intent)
         }
 
         val trendingButton = findViewById<Button>(R.id.trending_button)
