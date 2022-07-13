@@ -31,11 +31,6 @@ class SaleInfoFragment : Fragment() {
 
             // Give the binding access to the QueryViewModel class
 //            viewModel = sharedViewModel
-
-            // Initialize buttons
-            saleButton.setOnClickListener {
-                findNavController().navigate(R.id.action_saleInfoFragment_to_volumeFragment)
-            }
         }
 
 
