@@ -1,5 +1,7 @@
 package com.example.bookdiscover.volume
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -34,10 +36,6 @@ class VolumeFragment : Fragment() {
             // Set the lifecycleOwner
             lifecycleOwner = viewLifecycleOwner
 
-            // Initialize buttons
-            queryButton.setOnClickListener {
-                findNavController().navigate(R.id.action_volumeFragment_to_saleInfoFragment)
-            }
         }
 
         // TODO: For now, set the text as the title
@@ -52,7 +50,7 @@ class VolumeFragment : Fragment() {
             val averageRating = it["averageRating"].toString()
             val ratingCounts = it["ratingsCount"].toString()
             val imgUrl = it[JSON_IMAGELINKS]
-
+            val infoLink = it["infoLink"].toString()
 
             binding.volumeTitle.text = title
             binding.volumeAuthor.text = authors
@@ -92,7 +90,15 @@ class VolumeFragment : Fragment() {
                     error(R.drawable.ic_broken_image_48px)
                 }
             }
+
+            // Initialize buttons
+            binding.urlButton.setOnClickListener {
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(infoLink))
+                startActivity(intent)
+            }
         }
+
+
 
         return binding.root
     }
