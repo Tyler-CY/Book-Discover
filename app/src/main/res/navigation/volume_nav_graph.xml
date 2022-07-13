@@ -9,18 +9,5 @@
         android:id="@+id/volumeFragment"
         android:name="com.example.bookdiscover.volume.VolumeFragment"
         android:label="fragment_volume"
-        tools:layout="@layout/fragment_volume" >
-        <action
-            android:id="@+id/action_volumeFragment_to_saleInfoFragment"
-            app:destination="@id/saleInfoFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/saleInfoFragment"
-        android:name="com.example.bookdiscover.volume.SaleInfoFragment"
-        android:label="fragment_volume_sale_info"
-        tools:layout="@layout/fragment_volume_sale_info" >
-        <action
-            android:id="@+id/action_saleInfoFragment_to_volumeFragment"
-            app:destination="@id/volumeFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_volume" />
 </navigation>
