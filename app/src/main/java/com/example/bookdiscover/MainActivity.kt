@@ -29,9 +29,9 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        val trendingButton = findViewById<Button>(R.id.trending_button)
+        val trendingButton = findViewById<Button>(R.id.collection_button)
         trendingButton.setOnClickListener{
-            Snackbar.make(it, "Trending", Snackbar.LENGTH_SHORT).show()
+            Snackbar.make(it, "Bookshelf", Snackbar.LENGTH_SHORT).show()
         }
 
         val settingsButton = findViewById<Button>(R.id.settings_button)
