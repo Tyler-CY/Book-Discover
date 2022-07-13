@@ -119,7 +119,7 @@
 
 
         <Button
-            android:id="@+id/queryButton"
+            android:id="@+id/url_button"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:text="Read more on Google Books"

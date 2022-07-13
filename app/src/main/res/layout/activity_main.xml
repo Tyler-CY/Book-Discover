@@ -41,14 +41,14 @@
         android:layout_margin="4dp"
         android:layout_weight="1">
         <Button
-            android:id="@+id/trending_button"
+            android:id="@+id/collection_button"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:layout_margin="4dp"
             android:backgroundTint="@color/teal_200"
-            android:drawableLeft="@drawable/ic_trending_up_48px"
-            android:text="Trending" />
+            android:drawableLeft="@drawable/ic_collections_bookmark_48px"
+            android:text="My Collection" />
         <Button
             android:id="@+id/settings_button"
             android:layout_width="0dp"
