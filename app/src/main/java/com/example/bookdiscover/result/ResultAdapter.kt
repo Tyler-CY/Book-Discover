@@ -13,7 +13,6 @@ import com.example.bookdiscover.*
 import com.example.bookdiscover.network.Volume
 import com.example.bookdiscover.volume.VolumeActivity
 import com.example.bookdiscover.volume.VolumeHolder
-import kotlin.math.min
 
 /**
  * The adapter for the RecyclerView in ResultFragment
