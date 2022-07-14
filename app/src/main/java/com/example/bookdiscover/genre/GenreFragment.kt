@@ -38,7 +38,6 @@ class GenreFragment : Fragment() {
             lifecycleOwner = viewLifecycleOwner
         }
 
-        // TODO: THIS METHOD CAUSES JSONDATAEXCEPTION
         sharedViewModel.initialize()
 
         // Set up recyclerView
