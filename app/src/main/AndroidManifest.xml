@@ -11,6 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BookDiscover">
         <activity
+            android:name=".library.LibraryActivity"
+            android:exported="true" />
+        <activity
             android:name=".genre.GenreActivity"
             android:exported="true" />
         <activity
