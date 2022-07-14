@@ -70,4 +70,10 @@ dependencies {
     // Coil
     def coil_version = "2.1.0"
     implementation "io.coil-kt:coil:$coil_version"
+
+    // Room database
+    def room_version = "2.4.2"
+
+    implementation "androidx.room:room-runtime:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
 }
