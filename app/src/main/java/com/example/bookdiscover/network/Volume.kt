@@ -11,31 +11,32 @@ import com.squareup.moshi.ToJson
 
 @Retention(AnnotationRetention.RUNTIME)
 @JsonQualifier
-@Entity
 annotation class VolumeInfoTitle
 
 /**
  * data class for a volume (i.e. a book)
  */
 @JsonClass(generateAdapter = true)
+//@Entity
 data class Volume(
-    @PrimaryKey
+//    @PrimaryKey
     val id: String,
     // all Info Maps are optional
-    @ColumnInfo(name = "volume_info")
+//    @ColumnInfo(name = "volume_info")
     val volumeInfo: Map<String, Any?>? = null,
 
-    @ColumnInfo(name = "user_info")
+//    @ColumnInfo(name = "user_info")
     val userInfo: Map<String, Any?>? = null,
 
-    @ColumnInfo(name = "sale_info")
+//    @ColumnInfo(name = "sale_info")
     val saleInfo: Map<String, Any?>? = null,
 
-    @ColumnInfo(name = "access_info")
+//    @ColumnInfo(name = "access_info")
     val accessInfo: Map<String, Any?>? = null,
 
-    @ColumnInfo(name = "search_info")
+//    @ColumnInfo(name = "search_info")
     val searchInfo: Map<String, Any?>? = null,
+
 )
 
 

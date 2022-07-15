@@ -6,7 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.bookdiscover.network.Volume
 
-@Database(entities = arrayOf(Volume::class), exportSchema = false, version = 1)
+@Database(entities = arrayOf(Bookmarks::class), exportSchema = false, version = 1)
 abstract class AppDatabase: RoomDatabase() {
     abstract fun libraryDao(): LibraryDao
 
