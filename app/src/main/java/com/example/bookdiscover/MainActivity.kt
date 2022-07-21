@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import com.example.bookdiscover.genre.GenreActivity
+import com.example.bookdiscover.library.LibraryActivity
 import com.example.bookdiscover.search.SearchActivity
 import com.google.android.material.snackbar.Snackbar
 
@@ -31,7 +32,8 @@ class MainActivity : AppCompatActivity() {
 
         val libraryButton = findViewById<Button>(R.id.collection_button)
         libraryButton.setOnClickListener{
-            Snackbar.make(it, "Library", Snackbar.LENGTH_SHORT).show()
+            val intent = Intent(this, LibraryActivity::class.java)
+            startActivity(intent)
         }
 
         val settingsButton = findViewById<Button>(R.id.settings_button)
