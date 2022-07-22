@@ -8,4 +8,7 @@ data class Bookmarks (
     @PrimaryKey
     val id: String,
     val JsonBody: String? = null,
+
+
+    // e.g. Qk4rDwAAQBAJ and Hht2CgAAQBAJ for id
 )
