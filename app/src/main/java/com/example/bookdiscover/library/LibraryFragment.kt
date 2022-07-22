@@ -1,6 +1,7 @@
 package com.example.bookdiscover.library
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +10,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.bookdiscover.R
 import com.example.bookdiscover.database.AppDatabase
+import com.example.bookdiscover.database.Bookmarks
 import com.example.bookdiscover.database.LibraryDao
 import com.example.bookdiscover.databinding.FragmentGenreBinding
 import com.example.bookdiscover.databinding.FragmentLibraryBinding
@@ -39,9 +41,18 @@ class LibraryFragment : Fragment() {
             viewModel = sharedViewModel
         }
 
-        val recyclerView = binding.libraryRecyclerView
-        recyclerView.adapter = LibraryAdapter(this@LibraryFragment.activity!!, listOf(Volume("1"), Volume("1"),Volume("1"),Volume("1"),Volume("1")))
-        recyclerView.setHasFixedSize(true)
+        sharedViewModel.getAllSavedVolumes()
+
+
+        sharedViewModel.bookmarks.observe(this){
+            val recyclerView = binding.libraryRecyclerView
+
+            val testVolumes = listOf(Volume("1"), Volume("1"),Volume("1"),Volume("1"),Volume("1"))
+            val testBookmarks = sharedViewModel.bookmarks.value!!
+
+            recyclerView.adapter = LibraryAdapter(this@LibraryFragment.activity!!, testVolumes, testBookmarks)
+        }
+
 
 
         // Inflate the layout for this fragment
