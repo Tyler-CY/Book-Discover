@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bookdiscover.R
+import com.example.bookdiscover.database.Bookmarks
 import com.example.bookdiscover.network.Volume
 
 
@@ -15,7 +16,11 @@ class LibraryAdapter(
     // Referenced activity is used to start intent
     private val fragmentActivity: FragmentActivity,
     // A List of Volume objects, returned by GoogleBooksApi
-    private val dataset: List<Volume>
+    private val dataset: List<Volume>,
+
+    // For testing, use Bookmarks
+    private val bookmarks: List<Bookmarks>
+
 ) : RecyclerView.Adapter<LibraryAdapter.ItemViewHolder>() {
 
     // ViewHolder used in the RecyclerView
@@ -34,10 +39,10 @@ class LibraryAdapter(
     }
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
-        holder.titleView.text = "Position" + position.toString()
+        holder.titleView.text = "Position " + position.toString() + bookmarks[position].toString()
     }
 
     override fun getItemCount(): Int {
-        return dataset.size
+        return bookmarks.size
     }
 }
