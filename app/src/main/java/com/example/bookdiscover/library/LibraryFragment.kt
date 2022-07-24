@@ -47,9 +47,15 @@ class LibraryFragment : Fragment() {
         sharedViewModel.bookmarks.observe(this){
             val recyclerView = binding.libraryRecyclerView
 
+//            Log.d("Observer", "testVolumes")
+//             val testVolumes = sharedViewModel.volumes.value!!
             val testVolumes = listOf(Volume("1"), Volume("1"),Volume("1"),Volume("1"),Volume("1"))
             val testBookmarks = sharedViewModel.bookmarks.value!!
+//            if (testBookmarks.size == 0){
+//                testBookmarks = listOf(Bookmarks("No Bookmarks Available"))
+//            }
 
+//
             recyclerView.adapter = LibraryAdapter(this@LibraryFragment.activity!!, testVolumes, testBookmarks)
         }
 
