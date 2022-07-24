@@ -44,6 +44,13 @@
             android:layout_weight="1"
             android:textSize="15sp"
             tools:text="by gg" />
+
+        <Button
+            android:id="@+id/add_item_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add to Library"
+            />
     </LinearLayout>
 
 

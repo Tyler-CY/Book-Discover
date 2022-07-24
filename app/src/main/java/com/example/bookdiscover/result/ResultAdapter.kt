@@ -4,15 +4,22 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.bookdiscover.*
+import com.example.bookdiscover.database.AppDatabase
+import com.example.bookdiscover.database.Bookmarks
 import com.example.bookdiscover.network.Volume
 import com.example.bookdiscover.volume.VolumeActivity
 import com.example.bookdiscover.volume.VolumeHolder
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import java.util.*
 
 /**
  * The adapter for the RecyclerView in ResultFragment
@@ -29,6 +36,7 @@ class ResultAdapter(
         val titleView: TextView = view.findViewById(R.id.item_title)
         val authorView: TextView = view.findViewById(R.id.item_author)
         val bookView: ImageView = view.findViewById(R.id.book_cover)
+        val insertButton: Button = view.findViewById(R.id.add_item_button)
     }
 
     /**
@@ -101,6 +109,14 @@ class ResultAdapter(
             val intent = Intent(fragmentActivity, VolumeActivity::class.java)
             // Start the activity after setting up
             fragmentActivity.startActivity(intent)
+        }
+
+        holder.insertButton.setOnClickListener {
+            CoroutineScope(Dispatchers.IO).launch{
+                val dao = AppDatabase.getDatabase(fragmentActivity).libraryDao()
+                dao.insert(Bookmarks(kotlin.random.Random.nextInt(50000).toString(), "{ \"id\": \"testman\"} "))
+            }
+
         }
     }
 
