@@ -114,7 +114,8 @@ class ResultAdapter(
         holder.insertButton.setOnClickListener {
             CoroutineScope(Dispatchers.IO).launch{
                 val dao = AppDatabase.getDatabase(fragmentActivity).libraryDao()
-                dao.insert(Bookmarks(kotlin.random.Random.nextInt(50000).toString(), "{ \"id\": \"testman\"} "))
+                // TODO: Get the actual JSON string instead of placeholder JSON string
+                dao.insert(Bookmarks(kotlin.random.Random.nextInt(50000).toString(), JSON_WbZ4OQAACAAJ))
             }
 
         }

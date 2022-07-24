@@ -6,10 +6,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
-import com.example.bookdiscover.R
-import com.example.bookdiscover.TEST_JSON
-import com.example.bookdiscover.TEST_JSON_ONE_LINE
-import com.example.bookdiscover.network.Volume
+import com.example.bookdiscover.*
 
 @Database(entities = arrayOf(Bookmarks::class), exportSchema = false, version = 1)
 abstract class AppDatabase: RoomDatabase() {
@@ -50,17 +47,17 @@ abstract class AppDatabase: RoomDatabase() {
         }
 
         private fun prepopulateDb(db: AppDatabase){
-            val bookmark1 = Bookmarks("Qk4rDwAAQBAJ", TEST_JSON_ONE_LINE)
+            val bookmark1 = Bookmarks("Qk4rDwAAQBAJ", JSON_Qk4rDwAAQBAJ)
             db.libraryDao().insert(bookmark1)
 //            val bookmark1 = Bookmarks("Qk4rDwAAQBAJ", "{ \"id\": \"wtf\"} ")
 //
 //            db.libraryDao().insert(bookmark1)
 
-            val bookmark2 = Bookmarks("Hht2CgAAQBAJ", "{ \"id\": \"222\"} ")
+            val bookmark2 = Bookmarks("Hht2CgAAQBAJ", JSON_Hht2CgAAQBAJ)
             db.libraryDao().insert(bookmark2)
-            val bookmark3 = Bookmarks("WbZ4OQAACAAJ", "{ \"id\": \"hello3\"} ")
+            val bookmark3 = Bookmarks("WbZ4OQAACAAJ", JSON_WbZ4OQAACAAJ)
             db.libraryDao().insert(bookmark3)
-            val bookmark4 = Bookmarks("brITEAAAQBAJ", "{ \"id\": \"wold4\"} ")
+            val bookmark4 = Bookmarks("igcfBQAAQBAJ", JSON_igcfBQAAQBAJ)
             db.libraryDao().insert(bookmark4)
 
 
