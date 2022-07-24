@@ -3,6 +3,7 @@
 
     <!--    Complete BISAC Subject Headings List, 2021 Edition-->
     <string-array name="subjects">
+        <item>Categories</item>
         <item>ANTIQUES &amp; COLLECTIBLES</item>
         <item>Architecture</item>
         <item>Art</item>
