@@ -5,12 +5,13 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 import com.example.bookdiscover.network.Volume
+import kotlinx.coroutines.flow.Flow
 
 
 @Dao
 interface LibraryDao {
     @Query("SELECT * FROM library")
-    fun getAll(): List<Bookmarks>
+    fun getAll(): Flow<List<Bookmarks>>
 
     @Insert
     fun insert(bookmarks: Bookmarks)
