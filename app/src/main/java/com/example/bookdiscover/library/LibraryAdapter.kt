@@ -1,5 +1,6 @@
 package com.example.bookdiscover.library
 
+import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -13,6 +14,8 @@ import com.example.bookdiscover.R
 import com.example.bookdiscover.database.AppDatabase
 import com.example.bookdiscover.database.Bookmarks
 import com.example.bookdiscover.network.Volume
+import com.example.bookdiscover.volume.VolumeActivity
+import com.example.bookdiscover.volume.VolumeHolder
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import kotlinx.coroutines.CoroutineScope
@@ -59,6 +62,15 @@ class LibraryAdapter(
         Log.e("Json", volume.toString())
 
         holder.titleView.text = volume!!.id.toString()
+
+        holder.titleView.setOnClickListener {
+            // VolumeHolder holds the current book selected
+            VolumeHolder.setVolume(volume)
+            // Start the VolumeActivity to inspect the details of the book selected
+            val intent = Intent(fragmentActivity, VolumeActivity::class.java)
+            // Start the activity after setting up
+            fragmentActivity.startActivity(intent)
+        }
 
         holder.deleteButton.setOnClickListener{
             CoroutineScope(Dispatchers.IO).launch{
