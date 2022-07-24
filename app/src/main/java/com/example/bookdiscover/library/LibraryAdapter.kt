@@ -1,5 +1,6 @@
 package com.example.bookdiscover.library
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +11,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.bookdiscover.R
 import com.example.bookdiscover.database.Bookmarks
 import com.example.bookdiscover.network.Volume
+import com.squareup.moshi.Moshi
+import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 
 
 class LibraryAdapter(
@@ -39,7 +42,16 @@ class LibraryAdapter(
     }
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
-        holder.titleView.text = "Position " + position.toString() + bookmarks[position].toString()
+        Log.e("Json", bookmarks[position].JsonBody.toString())
+        val volume: Volume? = Moshi.Builder()
+            .addLast(KotlinJsonAdapterFactory())
+            .build()
+            .adapter(Volume::class.java)
+            .fromJson(bookmarks[position].JsonBody.toString())
+
+        Log.e("Json", volume.toString())
+
+        holder.titleView.text = volume!!.id.toString()
     }
 
     override fun getItemCount(): Int {
