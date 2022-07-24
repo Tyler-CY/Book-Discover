@@ -5,6 +5,7 @@ import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 // Constant base url for Google APIs. We are only interested in the Books API.
@@ -14,7 +15,6 @@ private const val BASE_URL = "https://www.googleapis.com/books/"
  * Build the Moshi object for Kotlin JSON adapter
  */
 private val moshi = Moshi.Builder()
-    .add(VolumeInfoAdapter())
     .addLast(KotlinJsonAdapterFactory())
     .build()
 
@@ -33,6 +33,9 @@ interface GoogleBooksApiService {
 
     @GET("v1/volumes")
     suspend fun search(@Query("q") queryString: String, @Query("maxResults") maxResults: String = "25"): VolumeQueryResult
+
+    @GET("v1/volumes/{Id}")
+    suspend fun searchById(@Path("Id") id: String): Volume
 }
 
 /**
