@@ -10,7 +10,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
-import com.example.bookdiscover.R
+import coil.load
+import com.example.bookdiscover.*
 import com.example.bookdiscover.database.AppDatabase
 import com.example.bookdiscover.database.Bookmarks
 import com.example.bookdiscover.network.Volume
@@ -21,7 +22,6 @@ import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import okhttp3.Dispatcher
 
 
 class LibraryAdapter(
@@ -53,19 +53,59 @@ class LibraryAdapter(
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         Log.e("Json", bookmarks[position].JsonBody.toString())
-        val volume: Volume? = Moshi.Builder()
+        val item: Volume? = Moshi.Builder()
             .addLast(KotlinJsonAdapterFactory())
             .build()
             .adapter(Volume::class.java)
             .fromJson(bookmarks[position].JsonBody.toString())
 
-        Log.e("Json", volume.toString())
+        Log.e("Json", item.toString())
 
-        holder.titleView.text = volume!!.id.toString()
+        try{
+            item?.volumeInfo?.let info@{
+
+                // Update the TextViews below
+
+                val imgUrl = it[JSON_IMAGELINKS]
+                imgUrl?.let {
+                    val link = (imgUrl as Map<*, *>)[JSON_THUMBNAIL].toString().replace("http://", "https://")
+
+                    // Load the image and setup placeholder and error images
+                    holder.bookView.load(link){
+                        placeholder(R.drawable.ic_hourglass_empty_48px)
+                        error(R.drawable.ic_broken_image_48px)
+                    }
+                }
+
+                val title = it[JSON_TITLE]
+                title?.let {
+                    // Set the title TextView
+                    holder.titleView.text = title.toString()
+                }
+
+                val authors = it[JSON_AUTHORS]
+                authors?.let {
+                    val length = (authors as List<*>).size
+                    if (length == 1){
+                        holder.authorView.text = authors[0].toString()
+                    }
+                    else if (length == 2){
+                        holder.authorView.text = authors[0].toString() + ", " + authors[1].toString()
+                    }
+                    else {
+                        holder.authorView.text = authors[0].toString() + ", " + authors[1].toString() + " et al."
+                    }
+                }
+
+
+            }
+        } catch (e: Exception){
+            e.printStackTrace()
+        }
 
         holder.titleView.setOnClickListener {
             // VolumeHolder holds the current book selected
-            VolumeHolder.setVolume(volume)
+            VolumeHolder.setVolume(item!!)
             // Start the VolumeActivity to inspect the details of the book selected
             val intent = Intent(fragmentActivity, VolumeActivity::class.java)
             // Start the activity after setting up
