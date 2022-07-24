@@ -19,7 +19,6 @@ import com.example.bookdiscover.volume.VolumeHolder
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import java.util.*
 
 /**
  * The adapter for the RecyclerView in ResultFragment
@@ -81,14 +80,16 @@ class ResultAdapter(
                 val authors = it[JSON_AUTHORS]
                 authors?.let {
                     val length = (authors as List<*>).size
-                    if (length == 1){
-                        holder.authorView.text = authors[0].toString()
-                    }
-                    else if (length == 2){
-                        holder.authorView.text = authors[0].toString() + ", " + authors[1].toString()
-                    }
-                    else {
-                        holder.authorView.text = authors[0].toString() + ", " + authors[1].toString() + " et al."
+                    when (length) {
+                        1 -> {
+                            holder.authorView.text = authors[0].toString()
+                        }
+                        2 -> {
+                            holder.authorView.text = authors[0].toString() + ", " + authors[1].toString()
+                        }
+                        else -> {
+                            holder.authorView.text = authors[0].toString() + ", " + authors[1].toString() + " et al."
+                        }
                     }
                 }
 

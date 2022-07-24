@@ -70,7 +70,7 @@ class GenreAdapter(
             fragmentActivity.startActivity(intent)
         }
 
-        if (imageDataset.size == 0) {
+        if (imageDataset.isEmpty()) {
             return
         }
 

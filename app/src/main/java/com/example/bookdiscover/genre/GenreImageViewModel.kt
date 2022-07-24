@@ -10,6 +10,9 @@ import com.example.bookdiscover.network.Volume
 import com.example.bookdiscover.network.VolumeQueryResult
 import kotlinx.coroutines.launch
 
+/**
+ * The ViewModel shared by the classes in the genre package
+ */
 class GenreImageViewModel(
     genreNameList: List<String>
 ): ViewModel() {
@@ -18,7 +21,7 @@ class GenreImageViewModel(
     private val _representatives = MutableLiveData<List<Volume>>()
     val representatives: LiveData<List<Volume>> = _representatives
 
-    val genreNameDataset = genreNameList
+    private val genreNameDataset = genreNameList
     /**
      * Initialize the view model
      */
@@ -28,19 +31,17 @@ class GenreImageViewModel(
         viewModelScope.launch {
             var queryResult: VolumeQueryResult
             genreNameDataset.forEach {
-                try{
-                    queryResult = GoogleBooksApi.retrofitService.search("subject:" + it)
+                queryResult = try{
+                    GoogleBooksApi.retrofitService.search("subject:$it")
                 } catch (e: Exception){
-                    queryResult = VolumeQueryResult("gg", 0, listOf())
+                    VolumeQueryResult("gg", 0, listOf())
                 }
 
                 Log.d("QUERY", queryResult.toString())
-                val itemToBeAdded: Volume
-                if (queryResult.totalItems == 0){
-                    itemToBeAdded = Volume("")
-                }
-                else {
-                    itemToBeAdded = queryResult.items[0]
+                val itemToBeAdded: Volume = if (queryResult.totalItems == 0){
+                    Volume("")
+                } else {
+                    queryResult.items[0]
                 }
                  _representatives.value = _representatives.value?.plus(itemToBeAdded) ?: listOf(itemToBeAdded)
             }

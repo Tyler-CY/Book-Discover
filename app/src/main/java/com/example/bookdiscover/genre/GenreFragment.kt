@@ -9,7 +9,6 @@ import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.bookdiscover.R
 import com.example.bookdiscover.databinding.FragmentGenreBinding
-import com.example.bookdiscover.network.Volume
 
 /**
  * The main fragment used in GenreActivity
@@ -45,7 +44,7 @@ class GenreFragment : Fragment() {
         val recyclerView = binding.genreRecyclerView
 
         // Bind basic adapter to recyclerView
-        recyclerView.adapter = GenreAdapter(this@GenreFragment.activity!!, listOf<Volume>())
+        recyclerView.adapter = GenreAdapter(this@GenreFragment.activity!!, listOf())
 
         // Changing the contents of the adapter does not change the height or width of the recyclerView,
         // In fact, users cannot change the contents (i.e. genre types are fixed).
