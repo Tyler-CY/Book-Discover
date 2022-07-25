@@ -2,6 +2,8 @@ package com.example.bookdiscover.network
 
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
+import okhttp3.ResponseBody
+import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
@@ -34,8 +36,10 @@ interface GoogleBooksApiService {
     @GET("v1/volumes")
     suspend fun search(@Query("q") queryString: String, @Query("maxResults") maxResults: String = "25"): VolumeQueryResult
 
+    // Do NOT make this a suspend function. It does not work.
     @GET("v1/volumes/{Id}")
-    suspend fun searchById(@Path("Id") id: String): Volume
+    fun searchById(@Path("Id") id: String): Call<ResponseBody>
+
 }
 
 /**
