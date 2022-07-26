@@ -14,6 +14,7 @@ import coil.load
 import com.example.bookdiscover.*
 import com.example.bookdiscover.database.AppDatabase
 import com.example.bookdiscover.database.Bookmarks
+import com.example.bookdiscover.library.LibraryEditor.Companion.addVolumeToLibrary
 import com.example.bookdiscover.network.GoogleBooksApi
 import com.example.bookdiscover.network.Volume
 import com.example.bookdiscover.volume.VolumeActivity
@@ -61,7 +62,7 @@ class ResultAdapter(
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val item = dataset[position]
 
-        try{
+        try {
             item.volumeInfo?.let info@{
 
                 // Update the TextViews below
@@ -71,7 +72,7 @@ class ResultAdapter(
                     val link = (imgUrl as Map<*, *>)[JSON_THUMBNAIL].toString().replace("http://", "https://")
 
                     // Load the image and setup placeholder and error images
-                    holder.bookView.load(link){
+                    holder.bookView.load(link) {
                         placeholder(R.drawable.ic_hourglass_empty_48px)
                         error(R.drawable.ic_broken_image_48px)
                     }
@@ -101,7 +102,7 @@ class ResultAdapter(
 
 
             }
-        } catch (e: Exception){
+        } catch (e: Exception) {
             e.printStackTrace()
         }
 
@@ -119,34 +120,10 @@ class ResultAdapter(
         }
 
         holder.insertButton.setOnClickListener {
-            CoroutineScope(Dispatchers.IO).launch{
-                val dao = AppDatabase.getDatabase(fragmentActivity).libraryDao()
-                // TODO: Get the actual JSON string instead of placeholder JSON string
-
-                Log.e("LOGGING", item.id)
-                GoogleBooksApi
-                    .retrofitService
-                    .searchById(item.id)
-                    .enqueue(
-                        object: Callback<ResponseBody>{
-                    override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
-                        // Raw HTTP response string
-                        val jsonBody = response.body()?.string()
-                        Log.e("JSONBODY", jsonBody ?: "{}")
-
-                        Thread{ dao.insert(Bookmarks(item.id, jsonBody)) }.start()
-                    }
-
-                    override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
-                        t.printStackTrace()
-                    }
-                })
-
-
-            }
-
+            addVolumeToLibrary(fragmentActivity, item)
         }
     }
+
 
     /**
      * Returns the total length of dataset (i.e. no. of items in dataset)
