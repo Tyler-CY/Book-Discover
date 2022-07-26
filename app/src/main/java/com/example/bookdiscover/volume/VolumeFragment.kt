@@ -13,6 +13,7 @@ import com.example.bookdiscover.JSON_IMAGELINKS
 import com.example.bookdiscover.JSON_THUMBNAIL
 import com.example.bookdiscover.R
 import com.example.bookdiscover.databinding.FragmentVolumeBinding
+import com.google.android.material.snackbar.Snackbar
 import kotlin.math.roundToInt
 
 
@@ -88,6 +89,10 @@ class VolumeFragment : Fragment() {
                     placeholder(R.drawable.ic_hourglass_empty_48px)
                     error(R.drawable.ic_broken_image_48px)
                 }
+            }
+
+            binding.addButton.setOnClickListener {
+                Snackbar.make(it, "Book added to Library!", Snackbar.LENGTH_SHORT).show()
             }
 
             // Initialize buttons
