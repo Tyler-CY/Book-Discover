@@ -10,11 +10,8 @@ import android.widget.TextView
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
-import com.example.bookdiscover.JSON_IMAGELINKS
-import com.example.bookdiscover.JSON_THUMBNAIL
 import com.example.bookdiscover.QUERY_STRING
 import com.example.bookdiscover.R
-import com.example.bookdiscover.network.Volume
 import com.example.bookdiscover.result.ResultActivity
 
 /**
@@ -25,11 +22,18 @@ class GenreAdapter(
     private val fragmentActivity: FragmentActivity,
     // A List of Volume objects. Each volume is a representative of its genre (subject/category) and
     // the order is based on the "subjects" string array defined in string.xml
-    private val imageDataset: List<Volume>
+    imageDataset: Map<String, String>
 ) : RecyclerView.Adapter<GenreAdapter.ItemViewHolder>() {
 
     // For now, the dataset is the list of genres/subjects, which are stored in a string array.
     private val genreNameDataset = fragmentActivity.resources.getStringArray(R.array.subjects).toList() as List<String>
+    private var imageUrls = imageDataset
+//    private val genreImageUrls: MutableMap<String, String> = imageDataset
+
+    fun setImageUrls(map: Map<String, String>){
+        imageUrls = map
+        Log.e("Observe NEW LIST", imageUrls.toString())
+    }
 
     // ViewHolder used in the RecyclerView
     class ItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -57,7 +61,6 @@ class GenreAdapter(
      * Binds object to ViewHolder
      */
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
-        Log.d("ADAPTER", imageDataset.toString())
         // Get the item at position
         val item = genreNameDataset[position]
 
@@ -69,31 +72,66 @@ class GenreAdapter(
             intent.putExtra(QUERY_STRING, "subject:" + holder.textView.text)
             fragmentActivity.startActivity(intent)
         }
-
-        if (imageDataset.isEmpty()) {
-            return
+        holder.textView.setOnClickListener {
+            val intent = Intent(fragmentActivity, ResultActivity::class.java)
+            intent.putExtra(QUERY_STRING, "subject:" + holder.textView.text)
+            fragmentActivity.startActivity(intent)
         }
+
 
         // Set the image
         try {
-            if (imageDataset[position].id != "" && genreNameDataset[position] != "Design") {
-
-                val imageUrl =
-                    (imageDataset[position].volumeInfo?.get(JSON_IMAGELINKS) as Map<*, *>)[JSON_THUMBNAIL].toString()
-                        .replace("http://", "https://")
-
-                Log.d("ADAPTER IMAGEURL", imageUrl)
-                Log.d("ADAPTER GENRE", genreNameDataset[position])
-                Log.d("ADAPTER LIST LENGTH", imageDataset.size.toString())
-                Log.d("ADAPTER POSITION", position.toString())
+            val imageUrl = imageUrls.get(item)
+            Log.e("Observe imageUrl", imageUrl.toString())
+            Log.e("Observe reps on adapter", imageUrls.toString())
+            if (imageUrl != null){
                 holder.imageView.load(imageUrl) {
-                    placeholder(R.drawable.ic_hourglass_empty_48px)
-                    error(R.drawable.ic_broken_image_48px)
+                        placeholder(R.drawable.ic_hourglass_empty_48px)
+                        error(R.drawable.ic_broken_image_48px)
                 }
             }
+
+
+
+//            val imageUrl = genreImageUrls.get(item)
+//
+//            if (imageUrl != null){
+//                holder.imageView.load(imageUrl) {
+//                    placeholder(R.drawable.ic_hourglass_empty_48px)
+//                    error(R.drawable.ic_broken_image_48px)
+//                }
+//            }
+//            else {
+//            CoroutineScope(Dispatchers.IO).launch {
+//                try {
+//                    val queryResult = GoogleBooksApi.retrofitService.search("subject:$item")
+//
+//                    val imageUrl =
+//                        ((queryResult.items[0]).volumeInfo?.get(JSON_IMAGELINKS) as Map<*, *>)[JSON_THUMBNAIL].toString()
+//                            .replace("http://", "https://")
+//
+//                    genreImageUrls.put(item, imageUrl)
+//                    holder.imageView.load(imageUrl) {
+//                        placeholder(R.drawable.ic_hourglass_empty_48px)
+//                        error(R.drawable.ic_broken_image_48px)
+//                    }
+//                }
+//                catch (e: Exception){
+//                    e.printStackTrace()
+//                }
+//
+//            }
+//            }
+
+//            Log.e("imageUrls", imageDataset.toString())
+
+
+
+
         } catch (e: Exception) {
             e.printStackTrace()
         }
+
 
     }
 
@@ -104,4 +142,8 @@ class GenreAdapter(
     override fun getItemCount(): Int {
         return genreNameDataset.size
     }
+
+//    private fun extractImageUrl(queryString: VolumeQueryResult,position: Int) =
+//        (queryString.items[0]).volumeInfo?.get(JSON_IMAGELINKS) as Map<*, *>)[JSON_THUMBNAIL].toString()
+//            .replace("http://", "https://")
 }
