@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.Flow
 /**
  * The ViewModel shared by the classes in the library package
  */
-class LibraryViewModel(private val libraryDao: LibraryDao): ViewModel() {
+class LibraryViewModel(private val libraryDao: LibraryDao) : ViewModel() {
 
 
     /**

@@ -1,17 +1,7 @@
 package com.example.bookdiscover.network
 
-import androidx.annotation.NonNull
-import androidx.room.ColumnInfo
-import androidx.room.Entity
-import androidx.room.PrimaryKey
-import com.squareup.moshi.FromJson
 import com.squareup.moshi.JsonClass
-import com.squareup.moshi.JsonQualifier
-import com.squareup.moshi.ToJson
 
-@Retention(AnnotationRetention.RUNTIME)
-@JsonQualifier
-annotation class VolumeInfoTitle
 
 /**
  * data class for a volume (i.e. a book)
@@ -39,18 +29,6 @@ data class Volume(
 
 )
 
-
-class VolumeInfoAdapter {
-    @ToJson
-    fun toJson(title: String): String {
-        return title
-    }
-
-    @FromJson @VolumeInfoTitle
-    fun fromJson(volumeInfo: Map<String, Any?>): String {
-        return volumeInfo["title"].toString()
-    }
-}
 
 
 

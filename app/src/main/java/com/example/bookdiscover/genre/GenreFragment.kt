@@ -1,7 +1,6 @@
 package com.example.bookdiscover.genre
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -41,25 +40,22 @@ class GenreFragment : Fragment() {
         val recyclerView = binding.genreRecyclerView
         recyclerView.layoutManager = GridLayoutManager(this@GenreFragment.activity!!, 3)
         recyclerView.setHasFixedSize(true)
-        recyclerView.adapter = GenreAdapter(this@GenreFragment.activity!!, sharedViewModel.representatives.value!!)
+        recyclerView.adapter = GenreAdapter(this@GenreFragment.activity!!)
 
 
-        sharedViewModel.genres.observe(this){
-            if (it != null){
-                Log.e("Observe", "observing")
+
+        sharedViewModel.genres.observe(this) {
+            if (it != null) {
+
                 val newestItem = it.last()
-                Log.e("Observe item", newestItem)
                 val list = this@GenreFragment.activity!!.resources.getStringArray(R.array.subjects).toList()
                 val newestItemIndex = list.indexOf(newestItem)
-                Log.e("Observe item", newestItemIndex.toString())
-                Log.e("Observe representatives", sharedViewModel.representatives.value!!.toString())
 
+                // Updates the dataset of adapter (i.e. the image URL mapping)
                 (recyclerView.adapter as GenreAdapter).setImageUrls(sharedViewModel.representatives.value!!)
 
 
                 recyclerView.adapter!!.notifyItemChanged(newestItemIndex)
-//                recyclerView.adapter!!.notifyDataSetChanged()
-//                recyclerView.adapter = GenreAdapter(this@GenreFragment.activity!!, sharedViewModel.representatives.value!!)
             }
         }
 

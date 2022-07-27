@@ -40,6 +40,8 @@ class LibraryFragment : Fragment() {
 
         /**
          * Use a coroutineScope to get the Flow data from the DAO of the sharedViewModel.
+         * TODO: Might not be a good idea to use a new LibraryAdapter every time "bookmarks" updates. Try
+         * TODO: to mimic the implementation used in GenreFragment.
          */
         lifecycle.coroutineScope.launch {
             sharedViewModel.bookmarks().collect {

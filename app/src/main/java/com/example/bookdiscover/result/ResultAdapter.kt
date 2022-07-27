@@ -1,7 +1,6 @@
 package com.example.bookdiscover.result
 
 import android.content.Intent
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,20 +11,10 @@ import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.bookdiscover.*
-import com.example.bookdiscover.database.AppDatabase
-import com.example.bookdiscover.database.Bookmarks
 import com.example.bookdiscover.library.LibraryEditor.Companion.addVolumeToLibrary
-import com.example.bookdiscover.network.GoogleBooksApi
 import com.example.bookdiscover.network.Volume
 import com.example.bookdiscover.volume.VolumeActivity
 import com.example.bookdiscover.volume.VolumeHolder
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import okhttp3.ResponseBody
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 /**
  * The adapter for the RecyclerView in ResultFragment
