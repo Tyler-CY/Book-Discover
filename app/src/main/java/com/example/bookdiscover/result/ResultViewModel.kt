@@ -8,6 +8,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.bookdiscover.network.GoogleBooksApi
 import com.example.bookdiscover.network.Volume
 import com.example.bookdiscover.network.VolumeQueryResult
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
 
 /**
@@ -15,21 +16,14 @@ import kotlinx.coroutines.launch
  */
 class ResultViewModel: ViewModel(){
 
-    // The kind of query
-    private val _kind = MutableLiveData<String>()
-    val kind: LiveData<String> = _kind
-
     // The total number of items in query result
     private val _totalItems = MutableLiveData<Int>()
     val totalItems: LiveData<Int> = _totalItems
 
-    // The title of the first book in the query result
-    private val _topResultTitle = MutableLiveData<String>()
-    val topResultTitle: LiveData<String> = _topResultTitle
-
     // The list of volume in the search result
     private val _items = MutableLiveData<List<Volume>>()
     val items: LiveData<List<Volume>> = _items
+
 
 
 
@@ -54,9 +48,7 @@ class ResultViewModel: ViewModel(){
     }
 
     private fun unpackQueryResult(queryResult: VolumeQueryResult) {
-        _kind.value = queryResult.kind
         _totalItems.value = queryResult.totalItems
-        _topResultTitle.value = queryResult.items[0].volumeInfo.toString().substring(0, 50)
         _items.value = queryResult.items
     }
 }

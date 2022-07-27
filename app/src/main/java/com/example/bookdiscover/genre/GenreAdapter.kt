@@ -65,30 +65,28 @@ class GenreAdapter(
      * Binds object to ViewHolder
      */
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
-        // Get the item at position
-        val item = genreNameDataset[position]
 
-        holder.textView.text = item
+        // Get the genre string at 'position".
+        val genre = genreNameDataset[position]
 
-        // Clicking on the image starts ResultActivity which returns the books of that genre
+        // Sets the textView to the genre string.
+        holder.textView.text = genre
+
+        // Clicking on the image or the text starts ResultActivity which returns a query result containing
+        // the books of that genre.
         holder.imageView.setOnClickListener {
-            val intent = Intent(fragmentActivity, ResultActivity::class.java)
-            intent.putExtra(QUERY_STRING, "subject:" + holder.textView.text)
-            fragmentActivity.startActivity(intent)
+            startResultActivityForGenre(holder, genre)
         }
         holder.textView.setOnClickListener {
-            val intent = Intent(fragmentActivity, ResultActivity::class.java)
-            intent.putExtra(QUERY_STRING, "subject:" + holder.textView.text)
-            fragmentActivity.startActivity(intent)
+            startResultActivityForGenre(holder, genre)
         }
 
 
         // Set the image
         try {
-            val imageUrl = liveImageUrlMappings[item]
+            val imageUrl = liveImageUrlMappings[genre]
 
             if (imageUrl != null) {
-
                 // Loads the image using the Coil library.
                 holder.imageView.load(imageUrl) {
                     placeholder(R.drawable.ic_hourglass_empty_48px)
@@ -98,6 +96,12 @@ class GenreAdapter(
         } catch (e: Exception) {
             e.printStackTrace()
         }
+    }
+
+    private fun startResultActivityForGenre(holder: ItemViewHolder, genre: String) {
+        val intent = Intent(fragmentActivity, ResultActivity::class.java)
+        intent.putExtra(QUERY_STRING, "subject:" + genre)
+        fragmentActivity.startActivity(intent)
     }
 
 

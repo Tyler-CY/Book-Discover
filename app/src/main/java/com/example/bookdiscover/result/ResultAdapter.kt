@@ -15,6 +15,7 @@ import com.example.bookdiscover.library.LibraryEditor.Companion.addVolumeToLibra
 import com.example.bookdiscover.network.Volume
 import com.example.bookdiscover.volume.VolumeActivity
 import com.example.bookdiscover.volume.VolumeHolder
+import com.google.android.material.snackbar.Snackbar
 
 /**
  * The adapter for the RecyclerView in ResultFragment
@@ -51,6 +52,7 @@ class ResultAdapter(
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val item = dataset[position]
 
+        // TODO: clean this method along with LibraryAdapter
         try {
             item.volumeInfo?.let info@{
 
@@ -69,7 +71,6 @@ class ResultAdapter(
 
                 val title = it[JSON_TITLE]
                 title?.let {
-                    // Set the title TextView
                     holder.titleView.text = title.toString()
                 }
 
@@ -98,19 +99,29 @@ class ResultAdapter(
 
         // Add a click listener for each title TextView to allow the user to see the details of the book
         holder.titleView.setOnClickListener {
-
-            // VolumeHolder holds the current book selected
-            VolumeHolder.setVolume(item)
-
-            // Start the VolumeActivity to inspect the details of the book selected
-            val intent = Intent(fragmentActivity, VolumeActivity::class.java)
-            // Start the activity after setting up
-            fragmentActivity.startActivity(intent)
+            startVolumeActivity(item)
+        }
+        holder.bookView.setOnClickListener {
+            startVolumeActivity(item)
         }
 
+        // Add a click listener for the reader to add volume to library.
         holder.insertButton.setOnClickListener {
+            Snackbar.make(it, "Saved to Library!", Snackbar.LENGTH_SHORT).show()
             addVolumeToLibrary(fragmentActivity, item)
         }
+    }
+
+    /**
+     * Starts VolumeActivity by specifying the volume selected.
+     */
+    private fun startVolumeActivity(item: Volume) {
+        // Update VolumeHolder to hold the current book selected
+        VolumeHolder.setVolume(item)
+        // Start the VolumeActivity to inspect the details of the book selected
+        val intent = Intent(fragmentActivity, VolumeActivity::class.java)
+        // Start the activity after setting up
+        fragmentActivity.startActivity(intent)
     }
 
 

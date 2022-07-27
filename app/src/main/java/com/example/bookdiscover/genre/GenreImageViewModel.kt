@@ -16,6 +16,8 @@ class GenreImageViewModel(
     genreNameList: List<String>
 ) : ViewModel() {
 
+    // representatives and genres could be combined into a SortedMap for convenience.
+
     // The list of volumes, each representing its genre
     private val _representatives = MutableLiveData<Map<String, String>>()
     val representatives: LiveData<Map<String, String>> = _representatives

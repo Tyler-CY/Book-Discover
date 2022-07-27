@@ -44,9 +44,15 @@ class LibraryEditor {
                             // Raw HTTP response string. Could be null.
                             val jsonBody = response.body()?.string()
 
-                            // Use another thread to insert the Volume object to the database. Could be replaced by
+                            // TODO: Use another thread to insert the Volume object to the database. Could be replaced by
                             // a coroutine or use the same coroutine?
-                            Thread { dao.insert(Bookmarks(item.id, jsonBody ?: "{}")) }.start()
+                            Thread {
+                                try {
+                                    dao.insert(Bookmarks(item.id, jsonBody ?: "{}"))
+                                } catch (e: Exception) {
+                                    e.printStackTrace()
+                                }
+                            }.start()
                         }
 
                         /**

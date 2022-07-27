@@ -12,41 +12,15 @@ import kotlinx.coroutines.launch
  */
 class VolumeViewModel : ViewModel() {
 
-    private val _id = MutableLiveData<String>()
-    val id: LiveData<String> = _id
-
-    private val _volumeInfo = MutableLiveData<Map<String, Any?>?>()
-    val volumeInfo: LiveData<Map<String, Any?>?> = _volumeInfo
-
-    private val _userInfo = MutableLiveData<Map<String, Any?>?>()
-    val userInfo: LiveData<Map<String, Any?>?> = _userInfo
-
-    private val _saleInfo = MutableLiveData<Map<String, Any?>?>()
-    val saleInfo: LiveData<Map<String, Any?>?> = _saleInfo
-
-    private val _accessInfo = MutableLiveData<Map<String, Any?>?>()
-    val accessInfo: LiveData<Map<String, Any?>?> = _accessInfo
-
-    private val _searchInfo = MutableLiveData<Map<String, Any?>?>()
-    val searchInfo: LiveData<Map<String, Any?>?> = _searchInfo
-
+    private val _volume = MutableLiveData<Volume>()
+    val volume: LiveData<Volume> = _volume
 
     /**
      * Get a book from the ResultViewModel
      */
     fun initialize(volume: Volume) {
         viewModelScope.launch {
-            try{
-                // Update the values
-                _id.value = volume.id
-                _volumeInfo.value = volume.volumeInfo
-                _userInfo.value = volume.userInfo
-                _saleInfo.value = volume.saleInfo
-                _accessInfo.value = volume.accessInfo
-                _searchInfo.value = volume.searchInfo
-            } catch (e: Exception){
-                e.printStackTrace()
-            }
+            _volume.postValue(volume)
         }
     }
 }

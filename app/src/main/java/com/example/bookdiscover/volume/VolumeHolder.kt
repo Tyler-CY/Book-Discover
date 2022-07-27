@@ -7,7 +7,7 @@ import com.example.bookdiscover.network.Volume
  */
 object VolumeHolder {
     // The Volume object stored in this singleton class
-    private var volume: Volume = Volume("temp")
+    private var volume: Volume = Volume("")
 
     fun setVolume(volume: Volume){
         this.volume = volume

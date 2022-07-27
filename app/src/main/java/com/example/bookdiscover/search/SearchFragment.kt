@@ -29,39 +29,53 @@ class SearchFragment : Fragment() {
 
             // submit button starts the ResultActivity, which calls the GoogleBooksApi to do the query
             submitButton.setOnClickListener {
-                val intent = Intent(activity, ResultActivity::class.java)
-
-                // Get the name from the nameText TextView and put it in the intent bundle
-                var parsedQueryString: String
-                val queryKeyword = queryString.text.toString()
-                val queryAuthor = queryAuthor.text.toString()
-                val queryPublisher = queryPublisher.text.toString()
-                val queryCategory = querySubject.selectedItem.toString()
-
-                parsedQueryString = queryKeyword
-                parsedQueryString = parseQuery(parsedQueryString, "inauthor", queryAuthor)
-                parsedQueryString = parseQuery(parsedQueryString, "inpublisher", queryPublisher)
-
-                if (queryCategory != "Categories") {
-                    parsedQueryString = parseQuery(parsedQueryString, "subject", queryCategory)
-                }
-
-                val queryIdType = queryIdType.selectedItem.toString()
-                val queryIdString = queryId.text.toString()
-                parsedQueryString = parseQuery(parsedQueryString, queryIdType.lowercase(), queryIdString)
-
-
-
-                // TODO: get dropdown menu
-
-                intent.putExtra(QUERY_STRING, parsedQueryString)
-
-                // Start the activity after setting up
-                startActivity(intent)
+                val parsedQueryString: String = buildQueryStringFromBinding()
+                startApiQuery(parsedQueryString)
             }
         }
 
         return binding.root
+    }
+
+    /**
+     * Extends the FragmentSearchBinding to parse a query string from what the user has selected and typed on the
+     * screen.
+     */
+    private fun FragmentSearchBinding.buildQueryStringFromBinding(): String {
+        // Get the name from the nameText TextView and put it in the intent bundle
+        var parsedQueryString: String
+        val queryKeywords = queryString.text.toString()
+        val queryAuthor = queryAuthor.text.toString()
+        val queryPublisher = queryPublisher.text.toString()
+        val queryCategory = querySubject.selectedItem.toString()
+
+        // Add the search keywords.
+        parsedQueryString = queryKeywords
+        // Add the additional parameters, i.e. author(s) and publisher(s).
+        parsedQueryString = parseQuery(parsedQueryString, "inauthor", queryAuthor)
+        parsedQueryString = parseQuery(parsedQueryString, "inpublisher", queryPublisher)
+
+        // Only parse query if the categories option is not the default value (i.e. "Categories).
+        if (queryCategory != "Categories") {
+            parsedQueryString = parseQuery(parsedQueryString, "subject", queryCategory)
+        }
+
+        // Get the ISBN, LCCN or OCLC type and the corresponding id.
+        val queryIdType = queryIdType.selectedItem.toString()
+        val queryIdString = queryId.text.toString()
+        parsedQueryString = parseQuery(parsedQueryString, queryIdType.lowercase(), queryIdString)
+
+        return parsedQueryString
+    }
+
+
+    /**
+     * Starts ResultActivity to begin query according to parsedQueryString.
+     */
+    private fun startApiQuery(parsedQueryString: String) {
+        val intent = Intent(activity, ResultActivity::class.java)
+        intent.putExtra(QUERY_STRING, parsedQueryString)
+        startActivity(intent)
     }
 
     /**
@@ -70,7 +84,7 @@ class SearchFragment : Fragment() {
     private fun parseQuery(parsedQueryString: String, queryKey: String, queryValue: String): String {
 
         if (queryValue.isNotEmpty()){
-            return parsedQueryString + "+" + queryKey + ":" + queryValue
+            return "$parsedQueryString+$queryKey:$queryValue"
         }
 
         return parsedQueryString
