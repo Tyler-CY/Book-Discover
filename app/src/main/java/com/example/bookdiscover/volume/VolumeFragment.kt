@@ -49,7 +49,7 @@ class VolumeFragment : Fragment() {
                 val title = it["title"].toString()
                 val authors = (it["authors"] as List<*>).joinToString()
                 val descriptions = it["description"].toString()
-                val categories = (it["categories"] as List<*>)[0].toString()
+                val categories = try {(it["categories"] as List<*>)[0].toString()} catch (e: Exception) {"Unknown"}
                 val language = it["language"].toString()
                 val averageRating = it["averageRating"].toString()
                 val ratingCounts = it["ratingsCount"].toString()
