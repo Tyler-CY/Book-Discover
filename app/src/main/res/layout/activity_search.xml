@@ -9,17 +9,20 @@
 
     tools:context=".search.SearchActivity">
 
+    <include
+        layout="@layout/tool_bar"
+        android:id="@+id/activity_search_tool_bar" />
+
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/search_fragment_container"
 
+        android:name="com.example.bookdiscover.search.SearchFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-
-        android:name="com.example.bookdiscover.search.SearchFragment" />
+        app:layout_constraintTop_toBottomOf="@+id/activity_search_tool_bar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

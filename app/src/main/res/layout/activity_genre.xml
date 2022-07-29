@@ -8,16 +8,22 @@
 
     tools:context=".genre.GenreActivity">
 
+    <include
+        layout="@layout/tool_bar"
+        android:id="@+id/activity_genre_tool_bar"/>
+
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/genre_fragment_container"
 
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+
+        android:layout_margin="8dp"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activity_genre_tool_bar"
 
         android:name="com.example.bookdiscover.genre.GenreFragment" />
 
