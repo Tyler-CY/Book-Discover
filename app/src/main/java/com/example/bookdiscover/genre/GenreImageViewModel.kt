@@ -1,5 +1,6 @@
 package com.example.bookdiscover.genre
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -50,9 +51,17 @@ class GenreImageViewModel(
                 val queryResult = GoogleBooksApi.retrofitService.search("subject:$genre")
 
                 // Extract the image link of the first book
-                val imageLink =
-                    ((queryResult.items[0]).volumeInfo?.get(JSON_IMAGELINKS) as Map<*, *>)[JSON_THUMBNAIL].toString()
-                        .replace("http://", "https://")
+                var imageLink = ""
+
+                // Iterate from the first result and find a book (of that genre) with a book cover.
+                // Note all books have book cover images.
+                var i = 0
+                while (i < queryResult.totalItems && imageLink == ""){
+                    imageLink = try {
+                        ((queryResult.items[i]).volumeInfo?.get(JSON_IMAGELINKS) as Map<*, *>)[JSON_THUMBNAIL].toString()
+                            .replace("http://", "https://")} catch (e: Exception){""}
+                    i++
+                }
 
                 // Updates the map and the lists.
                 _representatives.value =
