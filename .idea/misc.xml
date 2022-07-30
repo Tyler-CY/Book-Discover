@@ -6,6 +6,7 @@
         <entry key="..\:/Users/chun/IdeaProjects/android-basics-kotlin-words-app-starter/BookDiscover/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.3296875" />
         <entry key="..\:/Users/chun/IdeaProjects/android-basics-kotlin-words-app-starter/BookDiscover/app/src/main/res/drawable/ic_android_black_24dp.xml" value="0.3145833333333333" />
         <entry key="..\:/Users/chun/IdeaProjects/android-basics-kotlin-words-app-starter/BookDiscover/app/src/main/res/drawable/ic_broken_image_48px.xml" value="0.40260416666666665" />
+        <entry key="..\:/Users/chun/IdeaProjects/android-basics-kotlin-words-app-starter/BookDiscover/app/src/main/res/drawable/ic_collections_bookmark_48px.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/chun/IdeaProjects/android-basics-kotlin-words-app-starter/BookDiscover/app/src/main/res/drawable/ic_hourglass_empty_48px.xml" value="0.3958333333333333" />
         <entry key="..\:/Users/chun/IdeaProjects/android-basics-kotlin-words-app-starter/BookDiscover/app/src/main/res/drawable/ic_launcher_background.xml" value="0.3296875" />
         <entry key="..\:/Users/chun/IdeaProjects/android-basics-kotlin-words-app-starter/BookDiscover/app/src/main/res/drawable/ic_menu_book_48px.xml" value="0.3101851851851852" />
@@ -15,6 +16,8 @@
         <entry key="..\:/Users/chun/IdeaProjects/android-basics-kotlin-words-app-starter/BookDiscover/app/src/main/res/layout/activity_genre.xml" value="0.1" />
         <entry key="..\:/Users/chun/IdeaProjects/android-basics-kotlin-words-app-starter/BookDiscover/app/src/main/res/layout/activity_library.xml" value="0.3095890410958904" />
         <entry key="..\:/Users/chun/IdeaProjects/android-basics-kotlin-words-app-starter/BookDiscover/app/src/main/res/layout/activity_main.xml" value="0.15" />
+        <entry key="..\:/Users/chun/IdeaProjects/android-basics-kotlin-words-app-starter/BookDiscover/app/src/main/res/layout/activity_preferences.xml" value="0.33" />
+        <entry key="..\:/Users/chun/IdeaProjects/android-basics-kotlin-words-app-starter/BookDiscover/app/src/main/res/layout/activity_preferences2.xml" value="0.3398148148148148" />
         <entry key="..\:/Users/chun/IdeaProjects/android-basics-kotlin-words-app-starter/BookDiscover/app/src/main/res/layout/activity_result.xml" value="0.31354166666666666" />
         <entry key="..\:/Users/chun/IdeaProjects/android-basics-kotlin-words-app-starter/BookDiscover/app/src/main/res/layout/activity_search.xml" value="0.22" />
         <entry key="..\:/Users/chun/IdeaProjects/android-basics-kotlin-words-app-starter/BookDiscover/app/src/main/res/layout/activity_volume.xml" value="0.20018115942028986" />
@@ -22,13 +25,15 @@
         <entry key="..\:/Users/chun/IdeaProjects/android-basics-kotlin-words-app-starter/BookDiscover/app/src/main/res/layout/fragment_item_list.xml" value="0.3651041666666667" />
         <entry key="..\:/Users/chun/IdeaProjects/android-basics-kotlin-words-app-starter/BookDiscover/app/src/main/res/layout/fragment_library.xml" value="0.337037037037037" />
         <entry key="..\:/Users/chun/IdeaProjects/android-basics-kotlin-words-app-starter/BookDiscover/app/src/main/res/layout/fragment_nav_host.xml" value="0.5541666666666667" />
+        <entry key="..\:/Users/chun/IdeaProjects/android-basics-kotlin-words-app-starter/BookDiscover/app/src/main/res/layout/fragment_preferences.xml" value="0.3398148148148148" />
         <entry key="..\:/Users/chun/IdeaProjects/android-basics-kotlin-words-app-starter/BookDiscover/app/src/main/res/layout/fragment_query.xml" value="0.20618556701030927" />
         <entry key="..\:/Users/chun/IdeaProjects/android-basics-kotlin-words-app-starter/BookDiscover/app/src/main/res/layout/fragment_result.xml" value="0.1" />
         <entry key="..\:/Users/chun/IdeaProjects/android-basics-kotlin-words-app-starter/BookDiscover/app/src/main/res/layout/fragment_result_list.xml" value="0.39479166666666665" />
         <entry key="..\:/Users/chun/IdeaProjects/android-basics-kotlin-words-app-starter/BookDiscover/app/src/main/res/layout/fragment_result_volume_list.xml" value="0.2717678100263852" />
         <entry key="..\:/Users/chun/IdeaProjects/android-basics-kotlin-words-app-starter/BookDiscover/app/src/main/res/layout/fragment_sale_info.xml" value="0.4317708333333333" />
-        <entry key="..\:/Users/chun/IdeaProjects/android-basics-kotlin-words-app-starter/BookDiscover/app/src/main/res/layout/fragment_search.xml" value="0.5" />
+        <entry key="..\:/Users/chun/IdeaProjects/android-basics-kotlin-words-app-starter/BookDiscover/app/src/main/res/layout/fragment_search.xml" value="0.20018115942028986" />
         <entry key="..\:/Users/chun/IdeaProjects/android-basics-kotlin-words-app-starter/BookDiscover/app/src/main/res/layout/fragment_search_filter.xml" value="0.1" />
+        <entry key="..\:/Users/chun/IdeaProjects/android-basics-kotlin-words-app-starter/BookDiscover/app/src/main/res/layout/fragment_second.xml" value="0.3523148148148148" />
         <entry key="..\:/Users/chun/IdeaProjects/android-basics-kotlin-words-app-starter/BookDiscover/app/src/main/res/layout/fragment_volume.xml" value="0.33" />
         <entry key="..\:/Users/chun/IdeaProjects/android-basics-kotlin-words-app-starter/BookDiscover/app/src/main/res/layout/fragment_volume_sale_info.xml" value="0.2078804347826087" />
         <entry key="..\:/Users/chun/IdeaProjects/android-basics-kotlin-words-app-starter/BookDiscover/app/src/main/res/layout/fragment_volume_user_info.xml" value="0.5541666666666667" />
@@ -42,7 +47,9 @@
         <entry key="..\:/Users/chun/IdeaProjects/android-basics-kotlin-words-app-starter/BookDiscover/app/src/main/res/menu/main_menu.xml" value="0.5046296296296297" />
         <entry key="..\:/Users/chun/IdeaProjects/android-basics-kotlin-words-app-starter/BookDiscover/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.34444444444444444" />
         <entry key="..\:/Users/chun/IdeaProjects/android-basics-kotlin-words-app-starter/BookDiscover/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.34444444444444444" />
+        <entry key="..\:/Users/chun/IdeaProjects/android-basics-kotlin-words-app-starter/BookDiscover/app/src/main/res/xml/preferences.xml" value="0.3523148148148148" />
         <entry key="..\:/Users/chun/IdeaProjects/android-basics-kotlin-words-app-starter/BookDiscover/app/src/main/res/xml/root_preferences.xml" value="0.17222222222222222" />
+        <entry key="..\:/Users/chun/IdeaProjects/android-basics-kotlin-words-app-starter/BookDiscover/app/src/main/res/xml/settings.xml" value="0.3013888888888889" />
       </map>
     </option>
   </component>
