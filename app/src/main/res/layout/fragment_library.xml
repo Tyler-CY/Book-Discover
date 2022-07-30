@@ -12,7 +12,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:id="@+id/library_layout">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/library_recycler_view"
