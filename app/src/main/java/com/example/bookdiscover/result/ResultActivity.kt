@@ -10,6 +10,7 @@ import androidx.appcompat.widget.Toolbar
 import com.example.bookdiscover.AboutActivity
 import com.example.bookdiscover.R
 import com.example.bookdiscover.QUERY_STRING
+import com.example.bookdiscover.preferences.PreferencesActivity
 import com.google.android.material.snackbar.Snackbar
 
 /**
@@ -59,6 +60,8 @@ class ResultActivity : AppCompatActivity() {
                 return true
             }
             R.id.action_settings -> {
+                val intent = Intent(this, PreferencesActivity::class.java)
+                startActivity(intent)
                 return true
             }
             else -> {

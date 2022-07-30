@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import com.example.bookdiscover.AboutActivity
 import com.example.bookdiscover.R
+import com.example.bookdiscover.preferences.PreferencesActivity
 
 /**
  * The activity responsible for accessing the details of a volume. This activity is called by ResultActivity only.
@@ -44,6 +45,8 @@ class VolumeActivity : AppCompatActivity() {
                 return true
             }
             R.id.action_settings -> {
+                val intent = Intent(this, PreferencesActivity::class.java)
+                startActivity(intent)
                 return true
             }
             else -> {

@@ -9,6 +9,7 @@ import android.widget.Button
 import androidx.appcompat.widget.Toolbar
 import com.example.bookdiscover.genre.GenreActivity
 import com.example.bookdiscover.library.LibraryActivity
+import com.example.bookdiscover.preferences.PreferencesActivity
 import com.example.bookdiscover.search.SearchActivity
 import com.google.android.material.snackbar.Snackbar
 
@@ -16,6 +17,7 @@ import com.google.android.material.snackbar.Snackbar
  * The starting page of the Android application.
  */
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -45,7 +47,8 @@ class MainActivity : AppCompatActivity() {
 
         val settingsButton = findViewById<Button>(R.id.settings_button)
         settingsButton.setOnClickListener{
-            Snackbar.make(it, "Settings", Snackbar.LENGTH_SHORT).show()
+            val intent = Intent(this, PreferencesActivity::class.java)
+            startActivity(intent)
         }
     }
 
@@ -63,6 +66,8 @@ class MainActivity : AppCompatActivity() {
                 return true
             }
             R.id.action_settings -> {
+                val intent = Intent(this, PreferencesActivity::class.java)
+                startActivity(intent)
                 return true
             }
             else -> {
