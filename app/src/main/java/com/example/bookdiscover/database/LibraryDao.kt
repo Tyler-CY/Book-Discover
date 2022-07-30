@@ -19,4 +19,7 @@ interface LibraryDao {
 
     @Delete
     fun delete(bookmarks: Bookmarks)
+
+    @Query("DELETE FROM library")
+    fun deleteAll()
 }
