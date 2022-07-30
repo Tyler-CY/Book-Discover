@@ -32,6 +32,7 @@ class PreferencesFragment : PreferenceFragmentCompat() {
                 .setPositiveButton("Confirm") {
                         dialog, which ->
                     CoroutineScope(Dispatchers.IO).launch {
+                        Snackbar.make(listView, "Library Reset!", Snackbar.LENGTH_SHORT).show()
                         val dao = AppDatabase.getDatabase(activity!!).libraryDao()
                         dao.deleteAll()
                     }
