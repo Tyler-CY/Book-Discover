@@ -18,6 +18,7 @@ android {
     }
     buildFeatures {
         dataBinding true
+        viewBinding true
     }
 
     buildTypes {
@@ -77,4 +78,7 @@ dependencies {
     implementation "androidx.room:room-runtime:$room_version"
     kapt "androidx.room:room-compiler:$room_version"
     implementation "androidx.room:room-ktx:$room_version"
+
+    def preference_version = "1.2.0"
+    implementation "androidx.preference:preference-ktx:$preference_version"
 }
