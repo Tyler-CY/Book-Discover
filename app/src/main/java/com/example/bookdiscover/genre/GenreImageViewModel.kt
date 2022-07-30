@@ -56,10 +56,13 @@ class GenreImageViewModel(
                 // Iterate from the first result and find a book (of that genre) with a book cover.
                 // Note all books have book cover images.
                 var i = 0
-                while (i < queryResult.totalItems && imageLink == ""){
+                while (i < queryResult.totalItems && imageLink == "") {
                     imageLink = try {
                         ((queryResult.items[i]).volumeInfo?.get(JSON_IMAGELINKS) as Map<*, *>)[JSON_THUMBNAIL].toString()
-                            .replace("http://", "https://")} catch (e: Exception){""}
+                            .replace("http://", "https://")
+                    } catch (e: Exception) {
+                        ""
+                    }
                     i++
                 }
 
