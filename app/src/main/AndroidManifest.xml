@@ -12,6 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BookDiscover">
         <activity
+            android:name=".preferences.PreferencesActivity"
+            android:exported="true"
+            android:label="@string/title_activity_preferences"
+            android:theme="@style/Theme.BookDiscover.NoActionBar" />
+        <activity
             android:name=".AboutActivity"
             android:exported="true" />
         <activity
