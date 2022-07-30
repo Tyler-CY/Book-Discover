@@ -4,11 +4,16 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintSet
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.coroutineScope
 import com.example.bookdiscover.database.AppDatabase
 import com.example.bookdiscover.databinding.FragmentLibraryBinding
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 /**
@@ -46,10 +51,30 @@ class LibraryFragment : Fragment() {
         lifecycle.coroutineScope.launch {
             sharedViewModel.bookmarks().collect {
 
-                // Access the RecyclerView.
-                val recyclerView = binding.libraryRecyclerView
+                if (it.size != 0){
+                    // Access the RecyclerView.
+                    val recyclerView = binding.libraryRecyclerView
 
-                recyclerView.adapter = LibraryAdapter(this@LibraryFragment.activity!!, it)
+                    recyclerView.adapter = LibraryAdapter(this@LibraryFragment.activity!!, it)
+                }
+                else {
+                    binding.libraryRecyclerView.isVisible = false
+
+                    val textView: TextView = TextView(activity!!)
+                    textView.setText("No records.")
+                    textView.setTextSize(24F)
+                    textView.setId(View.generateViewId())
+                    binding.libraryLayout.addView(textView, 0)
+
+                    // Sets the textView to the middle by using ConstraintSet
+                    val constraintSet = ConstraintSet()
+                    constraintSet.clone(binding.libraryLayout)
+                    constraintSet.connect(textView.getId(), ConstraintSet.TOP, binding.libraryLayout.id, ConstraintSet.TOP)
+                    constraintSet.connect(textView.getId(), ConstraintSet.START, binding.libraryLayout.id, ConstraintSet.START)
+                    constraintSet.connect(textView.getId(), ConstraintSet.END, binding.libraryLayout.id, ConstraintSet.END)
+                    constraintSet.connect(textView.getId(), ConstraintSet.BOTTOM, binding.libraryLayout.id, ConstraintSet.BOTTOM)
+                    constraintSet.applyTo(binding.libraryLayout)
+                }
             }
         }
 
