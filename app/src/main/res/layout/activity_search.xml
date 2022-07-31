@@ -11,7 +11,7 @@
 
     <include
         layout="@layout/tool_bar"
-        android:id="@+id/activity_search_tool_bar" />
+        android:id="@+id/tool_bar_layout" />
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/search_fragment_container"
@@ -23,6 +23,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/activity_search_tool_bar" />
+        app:layout_constraintTop_toBottomOf="@+id/tool_bar_layout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

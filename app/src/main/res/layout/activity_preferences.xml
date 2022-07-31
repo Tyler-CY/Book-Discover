@@ -8,7 +8,7 @@
     android:layout_height="match_parent">
 
     <include layout="@layout/tool_bar"
-        android:id="@+id/activity_settings_tool_bar"/>
+        android:id="@+id/tool_bar_layout"/>
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/preferences_fragment_container"
@@ -19,7 +19,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/activity_settings_tool_bar"
+        app:layout_constraintTop_toBottomOf="@+id/tool_bar_layout"
 
         android:name="com.example.bookdiscover.preferences.PreferencesFragment" />
 
