@@ -11,31 +11,25 @@
     </data>
 
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:id="@+id/result_layout">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="15dp"
 
-            />
-
-        <!-- clipping not working as intented -->
+        <!-- clipping not working as intended -->
         <androidx.recyclerview.widget.RecyclerView
-
-            android:clipChildren="false"
-            android:clipToPadding="false"
-
             android:id="@+id/recycler_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scrollbars="vertical"
-            app:layoutManager="LinearLayoutManager"/>
+            app:layoutManager="LinearLayoutManager"
+
+            android:clipChildren="false"
+            android:clipToPadding="false" />
 
 
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 
