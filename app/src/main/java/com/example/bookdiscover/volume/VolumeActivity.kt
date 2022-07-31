@@ -21,13 +21,9 @@ class VolumeActivity : BaseActivity() {
         val volumeViewModel: VolumeViewModel by viewModels()
         volumeViewModel.initialize(selectedVolume)
 
+        setUpToolBar()
+
         val toolbar = findViewById<Toolbar>(R.id.tool_bar_widget)
-        setSupportActionBar(toolbar)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
-        // Must have the following line for Up button to work!!
-        toolbar.setNavigationOnClickListener { onBackPressed() }
-
         toolbar.subtitle = "About the book"
     }
 }
