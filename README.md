@@ -1,6 +1,6 @@
 # BookDiscover
 
-Find new books and discover new releases by genres using BookDiscover, powered by Google Books API. 
+Find new books and discover new releases by genres using BookDiscover and Google Books API. 
 
 ## Description
 
