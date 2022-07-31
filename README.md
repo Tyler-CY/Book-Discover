@@ -48,7 +48,7 @@ This project is built with Kotlin with Android's Room Database, RetroFit, Coil a
 2. Use Android Studio or IntelliJ or equivalent IDEs to open the project.
 3. Use your IDE's built-in AVD manager and run the app on a virtual device. Note the device requirements are in the dependencies section above.
 
-#### For Common Users (APK To Be Released!):
+#### For Common Users
 1. Download the Android APK on the Releases section on GitHub.
 2. Install the application by running the APK.
 
