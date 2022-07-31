@@ -152,8 +152,7 @@ class LibraryAdapter(
                 // Update authorView
                 val authors = it[JSON_AUTHORS]
                 authors?.let {
-                    val length = (authors as List<*>).size
-                    when (length) {
+                    when ((authors as List<*>).size) {
                         1 -> {
                             holder.authorView.text = "By" + authors[0].toString()
                         }
