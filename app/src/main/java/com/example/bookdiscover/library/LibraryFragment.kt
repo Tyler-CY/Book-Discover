@@ -52,7 +52,7 @@ class LibraryFragment : Fragment() {
                 if (it.isNotEmpty()){
                     // Access the RecyclerView.
                     val recyclerView = binding.libraryRecyclerView
-
+                    binding.libraryRecyclerView.isVisible = true
                     recyclerView.adapter = LibraryAdapter(this@LibraryFragment.activity!!, it)
                 }
                 else {
