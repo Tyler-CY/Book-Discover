@@ -24,7 +24,9 @@ class ResultViewModel: ViewModel(){
     val items: LiveData<List<Volume>> = _items
 
 
-
+    init {
+        _items.value = listOf()
+    }
 
     /**
      * Search for a book by name
