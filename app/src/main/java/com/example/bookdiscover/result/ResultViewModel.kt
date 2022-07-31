@@ -8,7 +8,6 @@ import androidx.lifecycle.viewModelScope
 import com.example.bookdiscover.network.GoogleBooksApi
 import com.example.bookdiscover.network.Volume
 import com.example.bookdiscover.network.VolumeQueryResult
-import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
 
 /**
@@ -16,7 +15,7 @@ import kotlinx.coroutines.launch
  */
 class ResultViewModel: ViewModel(){
 
-    // The total number of items in query result
+    // The total number of items in query result (Unused for now)
     private val _totalItems = MutableLiveData<Int>()
     val totalItems: LiveData<Int> = _totalItems
 

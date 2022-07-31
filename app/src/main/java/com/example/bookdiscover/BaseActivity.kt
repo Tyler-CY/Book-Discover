@@ -1,38 +1,33 @@
 package com.example.bookdiscover
 
 import android.content.Intent
-import android.os.Bundle
+import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 import com.example.bookdiscover.preferences.PreferencesActivity
 
-/**
- * The activity class for info page.
- */
-class AboutActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_about)
-
-        val toolbar = findViewById<Toolbar>(R.id.activity_main_toolbar)
-        setSupportActionBar(toolbar)
-        toolbar.subtitle = "About BookDiscover"
+open class BaseActivity: AppCompatActivity() {
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.main_menu, menu)
+        return true
     }
 
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when(item.itemId){
+        when(item.itemId){
             R.id.action_info -> {
-                true
+                val intent = Intent(this, AboutActivity::class.java)
+                startActivity(intent)
+                return true
             }
             R.id.action_settings -> {
                 val intent = Intent(this, PreferencesActivity::class.java)
                 startActivity(intent)
-                true
+                return true
             }
             else -> {
                 super.onOptionsItemSelected(item)
-                true
+                return true
             }
         }
     }

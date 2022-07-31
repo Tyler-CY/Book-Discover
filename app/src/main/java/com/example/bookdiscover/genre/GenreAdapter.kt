@@ -75,10 +75,10 @@ class GenreAdapter(
         // Clicking on the image or the text starts ResultActivity which returns a query result containing
         // the books of that genre.
         holder.imageView.setOnClickListener {
-            startResultActivityForGenre(holder, genre)
+            startResultActivityForGenre(genre)
         }
         holder.textView.setOnClickListener {
-            startResultActivityForGenre(holder, genre)
+            startResultActivityForGenre(genre)
         }
 
 
@@ -98,9 +98,9 @@ class GenreAdapter(
         }
     }
 
-    private fun startResultActivityForGenre(holder: ItemViewHolder, genre: String) {
+    private fun startResultActivityForGenre(genre: String) {
         val intent = Intent(fragmentActivity, ResultActivity::class.java)
-        intent.putExtra(QUERY_STRING, "subject:" + genre)
+        intent.putExtra(QUERY_STRING, "subject:$genre")
         fragmentActivity.startActivity(intent)
     }
 

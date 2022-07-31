@@ -76,8 +76,7 @@ class ResultAdapter(
 
                 val authors = it[JSON_AUTHORS]
                 authors?.let {
-                    val length = (authors as List<*>).size
-                    when (length) {
+                    when ((authors as List<*>).size) {
                         1 -> {
                             holder.authorView.text = authors[0].toString()
                         }

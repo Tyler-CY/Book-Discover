@@ -1,10 +1,6 @@
 package com.example.bookdiscover.preferences
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
@@ -30,7 +26,7 @@ class PreferencesFragment : PreferenceFragmentCompat() {
                 .setIcon(R.drawable.ic_warning_48px)
                 .setNegativeButton("Cancel", null)
                 .setPositiveButton("Confirm") {
-                        dialog, which ->
+                        _, _ ->
                     CoroutineScope(Dispatchers.IO).launch {
                         Snackbar.make(listView, "Library Reset!", Snackbar.LENGTH_SHORT).show()
                         val dao = AppDatabase.getDatabase(activity!!).libraryDao()
