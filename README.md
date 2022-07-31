@@ -23,11 +23,11 @@ This project is built with Kotlin with Android's Room Database, RetroFit, Coil a
 
 | Home Screen                                                                      | Saved Collections                                                                 | Discover New Releases                                                            |
 |----------------------------------------------------------------------------------|-----------------------------------------------------------------------------------|----------------------------------------------------------------------------------|
-| <img src="./doc/img/main_activity.png" align="left" height="800" width="385" >   | <img src="./doc/img/library_activity.png" align="left" height="800" width="385" > | <img src="./doc/img/genre_activity.png" align="left" height="800" width="385" >  |
+| <img src="./doc/img/main_activity.png">   | <img src="./doc/img/library_activity.png"> | <img src="./doc/img/genre_activity.png">  |
 
 | Search Filter                                                                    | Search Results                                                                    | Detailed Book Information                                                        |
 |----------------------------------------------------------------------------------|-----------------------------------------------------------------------------------|----------------------------------------------------------------------------------|
-| <img src="./doc/img/search_activity.png" align="left" height="800" width="385" > | <img src="./doc/img/result_activity.png" align="left" height="800" width="385" >  | <img src="./doc/img/volume_activity.png" align="left" height="800" width="385" > |
+| <img src="./doc/img/search_activity.png"> | <img src="./doc/img/result_activity.png">  | <img src="./doc/img/volume_activity.png"> |
 
 
 ### Upcoming Features
