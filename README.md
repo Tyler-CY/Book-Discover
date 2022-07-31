@@ -18,7 +18,7 @@ This project is built with Kotlin with Android's Room Database, RetroFit, Coil a
 - Instant access to Google Books website for purchase or further information
 - Discover new releases by genres
 - And more!
-- 
+
 
 
 | Home Screen                                                                      | Saved Collections                                                                 | Discover New Releases                                                            |
