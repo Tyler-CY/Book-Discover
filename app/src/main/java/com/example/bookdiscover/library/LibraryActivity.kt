@@ -14,8 +14,13 @@ class LibraryActivity : BaseActivity() {
         setContentView(R.layout.activity_library)
 
         // Use the toolbar widget instead of the appbar
-        val toolbar = findViewById<Toolbar>(R.id.activity_main_toolbar)
+        val toolbar = findViewById<Toolbar>(R.id.tool_bar_widget)
         setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        // Must have the following line for Up button to work!!
+        toolbar.setNavigationOnClickListener { onBackPressed() }
+
         toolbar.subtitle = "Your Collection"
     }
 }
