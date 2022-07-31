@@ -5,12 +5,13 @@
     <item
         android:id="@+id/action_info"
         android:icon="@drawable/ic_info_48px"
-        android:title="About"
-        app:showAsAction="ifRoom"/>
+        android:title="@string/option_about_text"
+        app:showAsAction="ifRoom" />
 
 
-    <item android:id="@+id/action_settings"
+    <item
+        android:id="@+id/action_settings"
         android:icon="@drawable/ic_settings_48px"
-        android:title="Settings"
+        android:title="@string/option_settings_text"
         app:showAsAction="never" />
 </menu>

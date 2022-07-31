@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:autofillHints="name"
             android:ems="10"
-            android:hint="Search Keywords"
+            android:hint="@string/search_keywords_hint"
             android:inputType="textAutoCorrect"
             android:layout_marginTop="24dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -32,9 +32,7 @@
             android:autofillHints="name"
             android:layout_marginTop="16dp"
             android:ems="10"
-
-            android:hint="Search by Author"
-
+            android:hint="@string/search_author_hint"
             android:inputType="textAutoCorrect"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -47,9 +45,7 @@
             android:layout_marginTop="16dp"
             android:autofillHints="name"
             android:ems="10"
-
-            android:hint="Search by Publisher"
-
+            android:hint="@string/search_publisher_hint"
             android:inputType="textAutoCorrect"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -94,7 +90,7 @@
                 android:layout_height="wrap_content"
                 android:autofillHints="name"
                 android:ems="10"
-                android:hint="ISBN/LCCN/OCLC"
+                android:hint="@string/search_id_hint"
                 android:layout_weight="10"
                 android:inputType="textAutoCorrect"
 
@@ -107,7 +103,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:text="Submit"
+            android:text="@string/submit_button_text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayoutCompat" />

@@ -63,31 +63,33 @@
         <item>LCCN</item>
         <item>OCLC</item>
     </string-array>
-    <string name="title_activity_settings">SettingsActivity</string>
 
     <!-- Preference Titles -->
-    <string name="messages_header">Messages</string>
-    <string name="sync_header">Sync</string>
 
     <!-- Messages Preferences -->
-    <string name="signature_title">Your signature</string>
-    <string name="reply_title">Default reply action</string>
 
     <!-- Sync Preferences -->
-    <string name="sync_title">Sync email periodically</string>
-    <string name="attachment_title">Download incoming attachments</string>
-    <string name="attachment_summary_on">Automatically download attachments for incoming emails</string>
-    <string name="attachment_summary_off">Only download attachments when manually requested</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_preferences">PreferencesActivity</string>
-    <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
 
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="title_activity_preferences">PreferencesActivity</string>
+    <string name="created_by_authors">Created by CY</string>
+    <string name="about_text">Your ultimate guide to discover a whole new world.</string>
+    <string name="search_button_text">Search</string>
+    <string name="discover_button_text">Discover</string>
+    <string name="collection_button_text">My Collection</string>
+    <string name="settings_button_text">Settings</string>
+    <string name="search_keywords_hint">Search Keywords</string>
+    <string name="search_author_hint">Search by Author</string>
+    <string name="search_publisher_hint">Search by Publisher</string>
+    <string name="search_id_hint">ISBN/LCCN/OCLC</string>
+    <string name="submit_button_text">Submit</string>
+    <string name="book_cover_image_description">Book Cover Image</string>
+    <string name="add_button_text">Add to library</string>
+    <string name="url_button_text">Google Books</string>
+    <string name="genre_image_description">The book cover of the top result of the genre.</string>
+    <string name="delete_button_text">Remove from Library</string>
+    <string name="option_about_text">About</string>
+    <string name="option_settings_text">Settings</string>
+    <!-- Strings used for fragments for navigation -->
 
 </resources>

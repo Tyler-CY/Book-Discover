@@ -5,9 +5,10 @@
     tools:context=".result.ResultFragment">
 
     <data>
+
         <variable
             name="viewModel"
-            type="com.example.bookdiscover.result.ResultViewModel"/>
+            type="com.example.bookdiscover.result.ResultViewModel" />
     </data>
 
 
@@ -30,7 +31,6 @@
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 
 </layout>

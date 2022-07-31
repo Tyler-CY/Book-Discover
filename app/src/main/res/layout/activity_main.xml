@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <include layout="@layout/tool_bar"/>
+    <include layout="@layout/tool_bar" />
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
@@ -16,15 +14,17 @@
         android:orientation="horizontal"
         android:layout_margin="4dp"
         android:layout_weight="1">
+
         <Button
             android:id="@+id/search_button"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:layout_margin="4dp"
-            android:drawableLeft="@drawable/ic_search_48px"
+            android:drawableStart="@drawable/ic_search_48px"
             android:backgroundTint="@color/teal_200"
-            android:text="Search" />
+            android:text="@string/search_button_text" />
+
         <Button
             android:id="@+id/discover_button"
             android:layout_width="0dp"
@@ -32,8 +32,8 @@
             android:layout_weight="1"
             android:layout_margin="4dp"
             android:backgroundTint="@color/teal_200"
-            android:drawableLeft="@drawable/ic_explore_48px"
-            android:text="Discover" />
+            android:drawableStart="@drawable/ic_explore_48px"
+            android:text="@string/discover_button_text" />
     </androidx.appcompat.widget.LinearLayoutCompat>
 
     <androidx.appcompat.widget.LinearLayoutCompat
@@ -42,6 +42,7 @@
         android:orientation="horizontal"
         android:layout_margin="4dp"
         android:layout_weight="1">
+
         <Button
             android:id="@+id/collection_button"
             android:layout_width="0dp"
@@ -49,8 +50,9 @@
             android:layout_weight="1"
             android:layout_margin="4dp"
             android:backgroundTint="@color/teal_200"
-            android:drawableLeft="@drawable/ic_collections_bookmark_48px"
-            android:text="My Collection" />
+            android:drawableStart="@drawable/ic_collections_bookmark_48px"
+            android:text="@string/collection_button_text" />
+
         <Button
             android:id="@+id/settings_button"
             android:layout_width="0dp"
@@ -58,8 +60,8 @@
             android:layout_weight="1"
             android:layout_margin="4dp"
             android:backgroundTint="@color/teal_200"
-            android:drawableLeft="@drawable/ic_settings_48px"
-            android:text="Settings" />
+            android:drawableStart="@drawable/ic_settings_48px"
+            android:text="@string/settings_button_text" />
     </androidx.appcompat.widget.LinearLayoutCompat>
 
 </androidx.appcompat.widget.LinearLayoutCompat>

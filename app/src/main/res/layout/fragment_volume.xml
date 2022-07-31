@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".volume.VolumeFragment">
 
     <data>
+
         <variable
             name="viewModel"
             type="com.example.bookdiscover.result.ResultViewModel" />
@@ -15,8 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="16dp"
-        android:orientation="vertical"
-        >
+        android:orientation="vertical">
 
 
         <TextView
@@ -52,7 +50,7 @@
                 android:layout_weight="1"
                 android:scaleType="fitCenter"
                 android:adjustViewBounds="true"
-                android:contentDescription="Book Cover Image"
+                android:contentDescription="@string/book_cover_image_description"
                 tools:src="@drawable/sample_book_cover_mini" />
 
             <androidx.appcompat.widget.LinearLayoutCompat
@@ -61,25 +59,25 @@
                 android:orientation="vertical"
                 android:layout_margin="16dp"
                 android:layout_weight="1">
+
                 <TextView
                     android:id="@+id/volume_category"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="2"
-                    android:text="Sports and Recreations" />
+                    tools:text="Sports and Recreations" />
 
-                <ImageView
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="5"/>
+                    android:layout_weight="5" />
 
                 <TextView
                     android:id="@+id/volume_language"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="2"
-                    android:text="Available in English, Chinese, French" />
-
+                    tools:text="Available in English, Chinese, French" />
 
 
                 <TextView
@@ -87,19 +85,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
-                    android:text="✰✰✰✰✰" />
+                    tools:text="✰✰✰✰✰" />
 
                 <TextView
                     android:id="@+id/volume_ratings_count"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
-                    android:text="from 1500 reviews"  />
+                    tools:text="from 1500 reviews" />
             </androidx.appcompat.widget.LinearLayoutCompat>
         </androidx.appcompat.widget.LinearLayoutCompat>
-
-
-
 
 
         <ScrollView
@@ -114,9 +109,8 @@
                 android:id="@+id/volume_description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum." />
+                tools:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum." />
         </ScrollView>
-
 
 
         <androidx.appcompat.widget.LinearLayoutCompat
@@ -130,7 +124,7 @@
                 android:id="@+id/add_button"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Add to library"
+                android:text="@string/add_button_text"
                 android:layout_marginStart="4dp"
                 android:layout_marginEnd="4dp"
                 android:layout_weight="1" />
@@ -139,16 +133,14 @@
                 android:id="@+id/url_button"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Google Books"
+                android:text="@string/url_button_text"
                 android:layout_marginStart="4dp"
                 android:layout_marginEnd="4dp"
                 android:layout_weight="1" />
         </androidx.appcompat.widget.LinearLayoutCompat>
 
 
-
     </androidx.appcompat.widget.LinearLayoutCompat>
-
 
 
 </layout>

@@ -25,10 +25,10 @@
                 android:layout_height="wrap_content"
                 android:autofillHints="name"
                 android:ems="10"
-                android:hint="Search Keywords"
+                android:hint="@string/search_keywords_hint"
                 android:inputType="textAutoCorrect"
                 android:layout_marginTop="24dp"
-                android:layout_gravity="center"/>
+                android:layout_gravity="center" />
 
 
             <EditText
@@ -38,9 +38,9 @@
                 android:autofillHints="name"
                 android:layout_marginTop="16dp"
                 android:ems="10"
-                android:hint="Search by Author"
+                android:hint="@string/search_author_hint"
                 android:inputType="textAutoCorrect"
-                android:layout_gravity="center"/>
+                android:layout_gravity="center" />
 
             <EditText
                 android:id="@+id/queryPublisher"
@@ -49,9 +49,9 @@
                 android:layout_marginTop="16dp"
                 android:autofillHints="name"
                 android:ems="10"
-                android:hint="Search by Publisher"
+                android:hint="@string/search_publisher_hint"
                 android:inputType="textAutoCorrect"
-                android:layout_gravity="center"/>
+                android:layout_gravity="center" />
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -64,60 +64,58 @@
             android:padding="16dp"
             android:orientation="vertical">
 
-                    <Spinner
-                        android:id="@+id/querySubject"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="24dp"
-                        android:entries="@array/subjects"
-                        android:spinnerMode="dropdown"
-                        android:layout_gravity="center"/>
+            <Spinner
+                android:id="@+id/querySubject"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:entries="@array/subjects"
+                android:spinnerMode="dropdown"
+                android:layout_gravity="center" />
 
 
-                    <androidx.appcompat.widget.LinearLayoutCompat
-                        android:id="@+id/linearLayoutCompat"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="40dp"
-                        android:orientation="horizontal"
-                        android:layout_gravity="center">
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/linearLayoutCompat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:orientation="horizontal"
+                android:layout_gravity="center">
 
-                        <Spinner
-                            android:id="@+id/queryIdType"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="16dp"
-                            android:entries="@array/id_types"
-                            android:spinnerMode="dropdown"
-                            android:layout_weight="1"
-                            tools:layout_editor_absoluteY="358dp" />
+                <Spinner
+                    android:id="@+id/queryIdType"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:entries="@array/id_types"
+                    android:spinnerMode="dropdown"
+                    android:layout_weight="1"
+                    tools:layout_editor_absoluteY="358dp" />
 
-                        <EditText
-                            android:id="@+id/queryId"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:autofillHints="name"
-                            android:ems="10"
-                            android:hint="ISBN/LCCN/OCLC"
-                            android:layout_weight="10"
-                            android:inputType="textAutoCorrect"
+                <EditText
+                    android:id="@+id/queryId"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:autofillHints="name"
+                    android:ems="10"
+                    android:hint="@string/search_id_hint"
+                    android:layout_weight="10"
+                    android:inputType="textAutoCorrect"
 
 
-                            tools:layout_editor_absoluteY="342dp" />
-                    </androidx.appcompat.widget.LinearLayoutCompat>
+                    tools:layout_editor_absoluteY="342dp" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
 
-                    <Button
-                        android:id="@+id/submitButton"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="24dp"
-                        android:text="Submit"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/linearLayoutCompat" />
+            <Button
+                android:id="@+id/submitButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="@string/submit_button_text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayoutCompat" />
         </androidx.appcompat.widget.LinearLayoutCompat>
-
-
 
 
     </androidx.appcompat.widget.LinearLayoutCompat>

@@ -28,7 +28,7 @@
             android:padding="@dimen/padding_regular"
             android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
             android:textStyle="bold"
-            android:text="BookDiscover" />
+            android:text="@string/app_name" />
 
 
         <ScrollView
@@ -44,24 +44,20 @@
                 <TextView
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
-                    android:id="@+id/article_subheading"
                     android:padding="@dimen/padding_regular"
                     android:textAppearance="@android:style/TextAppearance.DeviceDefault"
-                    android:text="Created by CY" />
+                    android:text="@string/created_by_authors" />
 
 
                 <TextView
-                    android:id="@+id/article"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:autoLink="web"
                     android:lineSpacingExtra="@dimen/line_spacing"
                     android:padding="@dimen/padding_regular"
-                    android:text="Your ultimate guide to discover a whole new world." />
+                    android:text="@string/about_text" />
 
             </LinearLayout>
-
-
 
 
         </ScrollView>

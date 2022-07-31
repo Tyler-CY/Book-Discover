@@ -8,7 +8,7 @@
 
     <include
         layout="@layout/tool_bar"
-        android:id="@+id/tool_bar_layout"/>
+        android:id="@+id/tool_bar_layout" />
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/library_fragment_container"
@@ -20,9 +20,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tool_bar_layout"
 
-        android:name="com.example.bookdiscover.library.LibraryFragment"
->
-
+        android:name="com.example.bookdiscover.library.LibraryFragment">
 
 
     </androidx.fragment.app.FragmentContainerView>
