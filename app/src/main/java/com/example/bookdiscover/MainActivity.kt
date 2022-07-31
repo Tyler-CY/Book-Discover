@@ -19,7 +19,7 @@ class MainActivity : BaseActivity() {
         setContentView(R.layout.activity_main)
 
         // Use the toolbar widget instead of the appbar
-        val toolbar = findViewById<Toolbar>(R.id.activity_main_toolbar)
+        val toolbar = findViewById<Toolbar>(R.id.tool_bar_widget)
         setSupportActionBar(toolbar)
         toolbar.subtitle = "Home"
 
