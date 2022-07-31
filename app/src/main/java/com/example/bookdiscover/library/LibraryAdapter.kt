@@ -154,13 +154,13 @@ class LibraryAdapter(
                 authors?.let {
                     when ((authors as List<*>).size) {
                         1 -> {
-                            holder.authorView.text = "By" + authors[0].toString()
+                            holder.authorView.text = authors[0].toString()
                         }
                         2 -> {
-                            holder.authorView.text = "By" + authors[0].toString() + ", " + authors[1].toString()
+                            holder.authorView.text = authors[0].toString() + ", " + authors[1].toString()
                         }
                         else -> {
-                            holder.authorView.text = "By" + authors[0].toString() + ", " + authors[1].toString() + " et al."
+                            holder.authorView.text = authors[0].toString() + ", " + authors[1].toString() + " et al."
                         }
                     }
                 }
