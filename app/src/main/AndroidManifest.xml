@@ -10,7 +10,10 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.BookDiscover">
+        android:theme="@style/Theme.BookDiscover"
+        android:fullBackupContent="@xml/backup_descriptor"
+        android:allowBackup="true"
+        android:fullBackupOnly="true">
         <activity
             android:name=".preferences.PreferencesActivity"
             android:exported="true"
